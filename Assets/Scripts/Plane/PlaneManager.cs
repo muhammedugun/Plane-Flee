@@ -1,0 +1,27 @@
+﻿using UnityEngine;
+
+namespace Assets.Scripts.Plane
+{
+    /// <summary>
+    /// Uçak ile ilgili görevleri yönetir
+    /// </summary>
+    public class PlaneManager : MonoBehaviour
+    {
+        public IPlaneMovement planeMovement;
+
+       
+        private void Awake()
+        {
+            planeMovement = GetComponent<IPlaneMovement>();
+      
+        }
+      
+        private void FixedUpdate()
+        {
+            planeMovement.MoveHorizontal();
+            planeMovement.MoveVertical();
+        }
+
+
+    }
+}
