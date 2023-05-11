@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Camera
 {
-    public class CameraPlaneTracking : MonoBehaviour, ICameraTracking
+    public class CameraPlaneTracking : AbstractCameraTracking
     {
 
         [SerializeField] Transform planeTransform;
@@ -11,7 +11,7 @@ namespace Assets.Scripts.Camera
         /// Uçağı x ekseninde takip eder
         /// </summary>
         /// <param name="cameraObject"></param>
-        public void FollowHorizontal(GameObject cameraObject)
+        public override void FollowHorizontal(GameObject cameraObject)
         {
             
             cameraObject.transform.position= new Vector3(planeTransform.position.x + horizontalDistance, cameraObject.transform.position.y, cameraObject.transform.position.z);

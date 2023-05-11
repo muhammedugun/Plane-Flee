@@ -1,43 +1,44 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Spawn
 {
     /// <summary>
-    /// Objeleri ardışık olarak spawn etmek ile ilgili görevlerden sorumlu
+    /// Spawnlama ile ilgili işlemlerden sorumludur
     /// </summary>
-    public interface IConsecutiveObjectSpawner
+    public abstract class AbstractSpawner : MonoBehaviour
     {
         /// <summary>
         /// spawnlanacak objenin bir örneği
         /// </summary>
-        GameObject SpawnObjectPrefab { get; set; }
-        /// <summary>
-        /// Spawnlanan objelerin tutulduğu dizi
-        /// </summary>
-        GameObject[] SpawnObjects { get; set; }
+        public GameObject spawnObjectPrefab;
+
         /// <summary>
         /// Spawn'ın başlangıç noktası, pozisyonu
         /// </summary>
-        Transform SpawnStartPoint { get; set; }
+        public Transform spawnStartPoint;
+
+        /// <summary>
+        /// Spawnlanan objelerin tutulduğu dizi
+        /// </summary>
+        internal GameObject[] spawnObjects;
 
         /// <summary>
         /// Oyun başladığında ilk spawn yapılırken çalışacak fonksiyon
         /// </summary>
-        void SpawnFirst();
+        public abstract void SpawnFirst();
 
         /// <summary>
         /// İlk spawndan sonra oyun döngüsü boyunca yapılacak spawn için çalışacak fonksiyon. Not: Observer olarak tetiklenip çalışması daha uygundur
         /// </summary>
-        void SpawnContinuously();
-       
+        public abstract void SpawnContinuously();
+
         /// <summary>
         /// Parametre olarak gönderilen spawn nesnesini öne taşır
         /// </summary>
         /// <param name="lastObjectTransform">son üretilmiş ya da son konumda duran objenin transformu</param>
-        /// <param name="spawnObject">Pozisyonu ayarlanacak objenin transformu</param>
+        /// <param name="spawnObject">Pozisyonu ayarlanacak obje</param>
         /// <param name="objectWidth">Pozisyonu ayarlanacak objenin genişliği</param>
-        void MoveForward(ref Transform lastObjectTransform, GameObject spawnObject, float objectWidth);
+        public abstract void MoveForward(Transform lastObjectTransform, GameObject spawnObject, float objectWidth);
 
         /// <summary>
         /// Parametre olarak gönderilen spawn nesnelerini ardışık olarak öne taşır.
@@ -45,12 +46,7 @@ namespace Assets.Scripts.Spawn
         /// <param name="lastObjectTransform">son üretilmiş ya da son konumda duran objenin pozisyonu</param>
         /// <param name="spawnObjects">Pozisyonu ayarlanacak objelerin transformu</param>
         /// <param name="objectsWidth">Pozisyonu ayarlanacak objelerin ortak genişliği</param>
-        public void MoveForwardMultiple(ref Transform lastObjectTransform, GameObject[] spawnObjects, float objectsWidth);
+        public abstract void MoveForwardMultiple(Transform lastObjectTransform, GameObject[] spawnObjects, float objectsWidth);
 
-
-        /// <summary>
-        ///  geçici olarak buraya eklendi
-        /// </summary>
-        void SetFinalGround();
     }
 }

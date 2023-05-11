@@ -5,7 +5,7 @@ namespace Assets.Scripts.Plane
     /// <summary>
     /// Mobil platformlar için dikey eksendeki hareketleri yönetmekten sorumlu
     /// </summary>
-    public class MobileVerticalMovement : MonoBehaviour, IVerticalMovement
+    public class MobileVerticalMovement : AbstractVerticalMovement
     {
         /// <summary>
         /// dokunma gerçekleşti mi?
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Plane
         /// <summary>
         /// Kullanıcı girdisini Touch metodu ile kontrol eder
         /// </summary>
-        public bool CheckInput()
+        public override bool CheckInput()
         {
             if (Input.touchCount > 0)
             {
@@ -33,7 +33,7 @@ namespace Assets.Scripts.Plane
             else return isTouch;
         }
 
-        public void MoveVelocity(float speed, Rigidbody2D rb)
+        public override void MoveVelocity(float speed, Rigidbody2D rb)
         {
            if(isTouch)
             {

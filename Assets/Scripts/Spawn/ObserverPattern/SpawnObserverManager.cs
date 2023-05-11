@@ -1,19 +1,21 @@
 ﻿using Assets.Scripts.ObserverPattern;
-using Assets.Scripts.Plane.ObserverDesign;
-using UnityEngine;
+using Assets.Scripts.Plane.ObserverPattern;
 
-namespace Assets.Scripts.Spawn.ObserverDesign
+namespace Assets.Scripts.Spawn.ObserverPattern
 {
     /// <summary>
-    /// Spawn sisteminin gözlemcilik (Observer Desing Pattern) ile ilgili görevleri yönetmekten sorumlu
+    /// Spawn sisteminin gözlemcilik (Observer Desing Pattern) ile ilgili görevlerini yönetmekten sorumlu
     /// </summary>
-    public class SpawnObserverManager : MonoBehaviour, IObserverManager
+    public class SpawnObserverManager : AbstractObserverManager
     {
         ConsecutiveGroundSpawner consecutiveGroundSpawner;
+        SeasonLoop seasonLoop;
 
-        private void Start()
+        private void Awake()
         {
             consecutiveGroundSpawner = GetComponent<ConsecutiveGroundSpawner>();
+            seasonLoop = GetComponent<SeasonLoop>();
+
         }
 
         private void OnEnable()
@@ -26,15 +28,23 @@ namespace Assets.Scripts.Spawn.ObserverDesign
             UnsubscribeToEvents();
         }
 
-        public void SubscribeToEvents()
+        public override void SubscribeToEvents()
         {
             TargetGroundSubject.OnTargetObjectPos += consecutiveGroundSpawner.SpawnContinuously;
+
+            LoopTimeSubject.OnLoopTimeReached += seasonLoop.SetNextLoopTime;
+            LoopTimeSubject.OnLoopTimeReached += seasonLoop.SetCurrentGroundSpriteIndex;
+            LoopTimeSubject.OnLoopTimeReached += seasonLoop.ChangeGroundSprite;
+
+            ConsecutiveGroundSpawner.OnSpawnDone += seasonLoop.ChangeGroundSprite;
+
         }
 
-        public void UnsubscribeToEvents()
+        public override void UnsubscribeToEvents()
         {
             TargetGroundSubject.OnTargetObjectPos -= consecutiveGroundSpawner.SpawnContinuously;
         }
 
+        
     }
 }

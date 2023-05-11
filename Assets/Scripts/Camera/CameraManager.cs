@@ -9,10 +9,10 @@ namespace Assets.Scripts.Camera
     public class CameraManager : MonoBehaviour
     {
         [SerializeField] GameObject cameraObject;
-        ICameraTracking cameraTracking;
+        AbstractCameraTracking cameraTracking;
         private void Awake()
         {
-            cameraTracking = GetComponent<ICameraTracking>();
+            cameraTracking = GetComponent<AbstractCameraTracking>();
         }
         private void LateUpdate()
         {

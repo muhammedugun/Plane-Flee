@@ -5,11 +5,11 @@ namespace Assets.Scripts.Optimization
 {
     public class OptimizationManager : MonoBehaviour
     {
-        IFPSTuner fPSTuner;
+        AbstractFPSTuner fPSTuner;
         private void Awake()
         {
             DontDestroyOnLoad(this.gameObject);
-            fPSTuner = GetComponent<IFPSTuner>();
+            fPSTuner = GetComponent<AbstractFPSTuner>();
             fPSTuner.SetToMaximumFPS();
             
         }

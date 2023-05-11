@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
-// Uçak bir hedefe vardığında bildirimde bulunması ve spawn olunca da yeni bir hedef belirlenmesi yönünde kod refactor edilecek. Herkesin tek bir sorumluluğu olmalı
+
 namespace Assets.Scripts.Spawn
 {
     /// <summary>
-    /// Spawn ile ilgili görevleri yönetmekten sorumlu
+    /// Spawn ile ilgili görevleri yönetmekten sorumlu. Not: Bulunduğu objede AbstractSpawner'in alt sınıflarından olan en az bir komponent bulunmalı
     /// </summary>
     public class SpawnManager : MonoBehaviour
     {
-        IConsecutiveObjectSpawner[] consecutiveObjectSpawners;
+        AbstractSpawner[] consecutiveObjectSpawners;
 
-        private void Start()
+        private void Awake()
         {
-            consecutiveObjectSpawners = GetComponents<IConsecutiveObjectSpawner>();
+            consecutiveObjectSpawners = GetComponents<ConsecutiveGroundSpawner>();
+        }
+
+        private void OnEnable()
+        {
             foreach (var item in consecutiveObjectSpawners)
             {
                 item.SpawnFirst();
             }
         }
+        
 
     }
 }

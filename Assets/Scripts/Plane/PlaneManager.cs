@@ -7,12 +7,12 @@ namespace Assets.Scripts.Plane
     /// </summary>
     public class PlaneManager : MonoBehaviour
     {
-        public IPlaneMovement planeMovement;
+        public AbstractPlaneMovement planeMovement;
 
        
         private void Awake()
         {
-            planeMovement = GetComponent<IPlaneMovement>();
+            planeMovement = GetComponent<AbstractPlaneMovement>();
       
         }
       

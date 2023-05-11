@@ -1,32 +1,16 @@
-﻿using Assets.Scripts.Spawn;
-using System;
-using System.Collections;
-using UnityEngine;
+﻿using System;
 
-namespace Assets.Scripts.Plane.ObserverDesign
+namespace Assets.Scripts.Plane.ObserverPattern
 {
     /// <summary>
     /// Uçağın hedef zemine varması ile ilgili bildirimde bulunma görevlerinden sorumlu
     /// </summary>
-    public class TargetGroundSubject : MonoBehaviour, IPositionSubject
+    public class TargetGroundSubject : TargetObjectSubject
     {
-        /// <summary>
-        /// Uçak hedef zemine vardı bildirimi
-        /// </summary>
+        public override Action GetOnTargetObjectPos => OnTargetObjectPos;
+
         public static event Action OnTargetObjectPos;
 
-        public Transform planePosition;
-
-
-        public void TargetObjectPosNotify()
-        {
-
-            if((Vector2)ConsecutiveGroundSpawner.finalGroundPosition.position!=Vector2.zero)
-            {
-                if (planePosition.position.x >= ConsecutiveGroundSpawner.finalGroundPosition.position.x) OnTargetObjectPos?.Invoke();
-            }
-            
-        }
 
     }
 }

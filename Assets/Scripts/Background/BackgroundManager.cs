@@ -9,16 +9,16 @@ namespace Assets.Scripts.Background
     public class BackgroundManager : MonoBehaviour
     {
         [SerializeField] PlaneManager planeManager;
-        IBackgroundTransition backgroundTransition;
+        AbstractBackgroundTransition backgroundTransition;
 
         private void Awake()
         {
-            backgroundTransition = GetComponent<IBackgroundTransition>();
+            backgroundTransition = GetComponent<AbstractBackgroundTransition>();
         }
 
         void Update()
         {
-            backgroundTransition.AdvanceWithReferanceSpeed(planeManager.planeMovement.HorizontalSpeed);
+            backgroundTransition.AdvanceWithReferanceSpeed(planeManager.planeMovement.horizontalSpeed);
         }
     }
 }

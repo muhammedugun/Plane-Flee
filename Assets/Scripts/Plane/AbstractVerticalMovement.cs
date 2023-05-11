@@ -5,16 +5,16 @@ namespace Assets.Scripts.Plane
     /// <summary>
     /// Dikey eksen hareketleri ile ilgili sorumlulukları üstlenir
     /// </summary>
-    public interface IVerticalMovement
+    public abstract class AbstractVerticalMovement : MonoBehaviour
     {
         /// <summary>
         /// Kullanıcı girdisini kontrol eder
         /// </summary>
-        bool CheckInput();
+        public abstract bool CheckInput();
 
         /// <summary>
         /// Dikey yönde hareketi gerçekleştirir
         /// </summary>
-        void MoveVelocity(float speed, Rigidbody2D rb);
+        public abstract void MoveVelocity(float speed, Rigidbody2D rb);
     }
 }

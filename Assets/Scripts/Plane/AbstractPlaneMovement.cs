@@ -1,27 +1,32 @@
-﻿namespace Assets.Scripts.Plane
+﻿using UnityEngine;
+
+namespace Assets.Scripts.Plane
 {
     /// <summary>
     /// Uçak hareketi ile ilgili görevlerden sorumlu.
     /// </summary>
-    public interface IPlaneMovement
+    public abstract class AbstractPlaneMovement : MonoBehaviour
     {
         /// <summary>
         /// Yatay hareket hızı
         /// </summary>
-        public float HorizontalSpeed { get; set; }
-
+        public float horizontalSpeed = 1f;
         /// <summary>
         /// Dikey hareket hızı
         /// </summary>
-        public float VerticalSpeed { get; set; }
+        public float verticalSpeed = 1f;
+
         /// <summary>
         /// Uçağı yatay eksende hareket ettirir
         /// </summary>
-        void MoveHorizontal();
+        public abstract void MoveHorizontal();
 
         /// <summary>
         /// Uçağı dikey eksende hareket ettirir
         /// </summary>
-        void MoveVertical();
+        public abstract void MoveVertical();
+
+        
+        
     }
 }

@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.Rendering;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Spawn
 {
+    /// <summary>
+    /// Spawn ile ilgili hizmetleri sağlamaktan sorumlu
+    /// </summary>
     public class SpawnService : MonoBehaviour
     {
         /// <summary>
-        /// Spawn dizisindeki objelerin indexlerini düzenler.
+        /// Spawn dizisindeki objelerin indexlerini düzenler. Not: 1 spawn yapıldıktan sonra çağırılmalı
         /// </summary>
         /// <param name="spawnObjects"></param>
         public static void FixSpawnArrayIndexs(ref GameObject[] spawnObjects)

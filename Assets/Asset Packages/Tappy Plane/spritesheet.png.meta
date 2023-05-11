@@ -141,11 +141,11 @@ TextureImporter:
       name: groundGrass
       rect:
         serializedVersion: 2
-        x: 1301
+        x: 1302
         y: 4653
-        width: 3231
+        width: 3227
         height: 286
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -166,7 +166,7 @@ TextureImporter:
         y: 2059
         width: 435
         height: 960
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -204,11 +204,11 @@ TextureImporter:
       name: groundDirt
       rect:
         serializedVersion: 2
-        x: 1301
+        x: 1302
         y: 4013
-        width: 3231
+        width: 3227
         height: 286
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -217,6 +217,69 @@ TextureImporter:
       bones: []
       spriteID: 3b3dbefc36be55d479f0aa15818e43f4
       internalID: 297157327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundRock
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 4334
+        width: 3227
+        height: 286
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ef8dc5cb8571947983f8e0b4554434
+      internalID: -54793095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundSnow
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 3694
+        width: 3227
+        height: 286
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de113a8a63d09f347bd41d7ff67367ed
+      internalID: -1860201509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: groundIce
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 3372
+        width: 3227
+        height: 286
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af9c57c530624d49ad0603b08609f63
+      internalID: 164295540
       vertices: []
       indices: 
       edges: []
@@ -235,6 +298,9 @@ TextureImporter:
       background: 914397499
       groundDirt: 297157327
       groundGrass: -1538141770
+      groundIce: 164295540
+      groundRock: -54793095
+      groundSnow: -1860201509
       planeYellow1: 1464067467
       rock: -248771170
   spritePackingTag: 
