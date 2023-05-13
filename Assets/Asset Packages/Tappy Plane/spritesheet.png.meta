@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rock
+      name: rockDirt
       rect:
         serializedVersion: 2
         x: 18
@@ -284,6 +284,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: rockSnow
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 2059
+        width: 435
+        height: 960
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9993f280547f0e40bf1c8572f44d03d
+      internalID: -827985115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockIcle
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 2059
+        width: 435
+        height: 960
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: badf727ec15859a429094093576b3545
+      internalID: 2048366132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rockGrass
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 2059
+        width: 435
+        height: 960
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8162f0bcadef4e84099e1e32cd148a95
+      internalID: 1148608830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -302,7 +365,10 @@ TextureImporter:
       groundRock: -54793095
       groundSnow: -1860201509
       planeYellow1: 1464067467
-      rock: -248771170
+      rockDirt: -248771170
+      rockGrass: 1148608830
+      rockIcle: 2048366132
+      rockSnow: -827985115
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

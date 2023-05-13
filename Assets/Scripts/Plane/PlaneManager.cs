@@ -7,19 +7,21 @@ namespace Assets.Scripts.Plane
     /// </summary>
     public class PlaneManager : MonoBehaviour
     {
-        public AbstractPlaneMovement planeMovement;
+        public PlaneMovement planeMovement;
+        MobileInputController mobilInputController;
 
        
         private void Awake()
         {
-            planeMovement = GetComponent<AbstractPlaneMovement>();
-      
+            planeMovement = GetComponent<PlaneMovement>();
+            mobilInputController = GetComponent<MobileInputController>();
         }
       
         private void FixedUpdate()
         {
             planeMovement.MoveHorizontal();
-            planeMovement.MoveVertical();
+            planeMovement.MoveVertical(ref mobilInputController.isTouch);
+            planeMovement.SetRotation();
         }
 
 

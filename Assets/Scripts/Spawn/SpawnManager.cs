@@ -7,16 +7,16 @@ namespace Assets.Scripts.Spawn
     /// </summary>
     public class SpawnManager : MonoBehaviour
     {
-        AbstractSpawner[] consecutiveObjectSpawners;
+        AbstractSpawner[] abstractSpawners;
 
         private void Awake()
         {
-            consecutiveObjectSpawners = GetComponents<ConsecutiveGroundSpawner>();
+            abstractSpawners = GetComponents<AbstractSpawner>();
         }
 
         private void OnEnable()
         {
-            foreach (var item in consecutiveObjectSpawners)
+            foreach (var item in abstractSpawners)
             {
                 item.SpawnFirst();
             }

@@ -8,12 +8,14 @@ namespace Assets.Scripts.Spawn.ObserverPattern
     /// </summary>
     public class SpawnObserverManager : AbstractObserverManager
     {
-        ConsecutiveGroundSpawner consecutiveGroundSpawner;
+        AbstractSpawner consecutiveGroundSpawner;
+        AbstractSpawner intermittentObstacleSpawner;
         SeasonLoop seasonLoop;
 
         private void Awake()
         {
-            consecutiveGroundSpawner = GetComponent<ConsecutiveGroundSpawner>();
+            consecutiveGroundSpawner = GetComponent<GroundSpawner>();
+            intermittentObstacleSpawner = GetComponent<ObstacleSpawner>();
             seasonLoop = GetComponent<SeasonLoop>();
 
         }
@@ -30,21 +32,41 @@ namespace Assets.Scripts.Spawn.ObserverPattern
 
         public override void SubscribeToEvents()
         {
+            
             TargetGroundSubject.OnTargetObjectPos += consecutiveGroundSpawner.SpawnContinuously;
+            TargetObstacleSubject.OnTargetObjectPos += intermittentObstacleSpawner.SpawnContinuously;
 
             LoopTimeSubject.OnLoopTimeReached += seasonLoop.SetNextLoopTime;
+
             LoopTimeSubject.OnLoopTimeReached += seasonLoop.SetCurrentGroundSpriteIndex;
             LoopTimeSubject.OnLoopTimeReached += seasonLoop.ChangeGroundSprite;
 
-            ConsecutiveGroundSpawner.OnSpawnDone += seasonLoop.ChangeGroundSprite;
+            LoopTimeSubject.OnLoopTimeReached += seasonLoop.SetCurrentObstacleSpriteIndex;
+            LoopTimeSubject.OnLoopTimeReached += seasonLoop.ChangeObstacleSprite;
+
+            GroundSpawner.OnSpawnDone += seasonLoop.ChangeGroundSprite;
+            ObstacleSpawner.OnSpawnDone += seasonLoop.ChangeObstacleSprite;
 
         }
 
         public override void UnsubscribeToEvents()
         {
             TargetGroundSubject.OnTargetObjectPos -= consecutiveGroundSpawner.SpawnContinuously;
+            TargetObstacleSubject.OnTargetObjectPos -= intermittentObstacleSpawner.SpawnContinuously;
+
+            LoopTimeSubject.OnLoopTimeReached -= seasonLoop.SetNextLoopTime;
+
+            LoopTimeSubject.OnLoopTimeReached -= seasonLoop.SetCurrentGroundSpriteIndex;
+            LoopTimeSubject.OnLoopTimeReached -= seasonLoop.ChangeGroundSprite;
+
+            LoopTimeSubject.OnLoopTimeReached -= seasonLoop.SetCurrentObstacleSpriteIndex;
+            LoopTimeSubject.OnLoopTimeReached -= seasonLoop.ChangeObstacleSprite;
+
+            GroundSpawner.OnSpawnDone -= seasonLoop.ChangeGroundSprite;
+
+            ObstacleSpawner.OnSpawnDone -= seasonLoop.ChangeObstacleSprite;
         }
 
-        
+
     }
 }

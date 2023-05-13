@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 
 namespace Assets.Scripts.Spawn
 {
@@ -7,6 +8,8 @@ namespace Assets.Scripts.Spawn
     /// </summary>
     public abstract class AbstractSpawner : MonoBehaviour
     {
+
+        public int spawnObjectCount;
         /// <summary>
         /// spawnlanacak objenin bir örneği
         /// </summary>

@@ -10,18 +10,30 @@ namespace Assets.Scripts.Plane.ObserverPattern
     public class PlaneSubjectManager : AbstractSubjectManager
     {
         [Tooltip("Objeler arasındaki mevcut olan ConsecutiveGroundSpawner'i atınız")]
-        [SerializeField] ConsecutiveGroundSpawner consecutiveGroundSpawner;
+        [SerializeField] GroundSpawner groundSpawner;
+        [Tooltip("Objeler arasındaki mevcut olan IntermittentObstacleSpawner'i atınız")]
+        [SerializeField] ObstacleSpawner obstacleSpawner;
+
         TargetObjectSubject targetGroundSubject;
+        TargetObjectSubject targetObstacleSubject;
 
         private void Awake()
         {
+
             targetGroundSubject = GetComponent<TargetGroundSubject>();
+            targetObstacleSubject = GetComponent<TargetObstacleSubject>();
         }
 
         private void LateUpdate()
         {
-            var targetObjectPos = consecutiveGroundSpawner.spawnObjects[consecutiveGroundSpawner.spawnObjects.Length - 2].transform.position;
-            targetGroundSubject.TargetObjectPosNotify(targetObjectPos);
+            NotifyTargetObject(groundSpawner, targetGroundSubject, groundSpawner.spawnObjects.Length - 2);
+            NotifyTargetObject(obstacleSpawner, targetObstacleSubject, obstacleSpawner.spawnObjects.Length - 3);
+        }
+
+        void NotifyTargetObject(AbstractSpawner abstractSpawner, TargetObjectSubject targetObjectSubject, int targetObjectIndex)
+        {
+            var targetObjectPos = abstractSpawner.spawnObjects[targetObjectIndex].transform.position;
+            targetObjectSubject.TargetObjectPosNotify(targetObjectPos);
         }
 
     }
