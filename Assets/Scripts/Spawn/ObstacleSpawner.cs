@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Assets.Scripts.Spawn
 {
     /// <summary>
-    /// Engelleri aralıklı olarak spawnlama ile ilgili görevlerden sorumlu
+    /// Engelleri spawnlama ile ilgili görevlerden sorumlu
     /// </summary>
     public class ObstacleSpawner : AbstractSpawner
     {
@@ -17,44 +17,39 @@ namespace Assets.Scripts.Spawn
         [Tooltip("Aşağıda spawn olanların maks yüksekliği")] public float bottomMaxHeight = -5f;
         [Tooltip("Aşağıda spawn olanların min yüksekliği")] public float bottomMinHeight = -6.5f;
 
-
-        bool isUp;
         /// <summary>
         /// Spawn gerçekleşti bildirimi
-        /// </summary>
-        /// 
-        
+        /// </summary>        
         public static event Action OnSpawnDone;
 
+        bool isUp;
         public override void MoveForward(Transform lastObjectTransform, GameObject spawnObject, float objectDistance)
         {
             var spawnPositionX = lastObjectTransform.position.x + objectDistance;
             spawnObject.transform.position = new Vector2(spawnPositionX, lastObjectTransform.position.y);
-
             ObjectTransformRandomization.RandomizeRotation(spawnObject.transform, -7f, 7f);
+
+            SpawnService.FixSpawnArrayIndexs(ref spawnObjects);
         }
 
-        public override void MoveForwardMultiple(Transform lastObjectTransform, GameObject[] spawnObjects, float objectsWidth)
+        public override void MoveForwardMultiple(Transform lastObjectTransform, GameObject[] spawnObjects, float objectDistance)
         {
             for (int i = 0; i < spawnObjects.Length; i++)
             {
                 if (i == 0) 
                 {
-                    MoveForward(lastObjectTransform, spawnObjects[i], objectsWidth);
-                    SetHeight(spawnObjects[i]);
+                    MoveForward(lastObjectTransform, spawnObjects[0], objectDistance);
                 }
                 else 
                 {
-                    MoveForward(spawnObjects[i - 1].transform, spawnObjects[i], objectsWidth);
-                    SetHeight(spawnObjects[i]);
+                    MoveForward(spawnObjects[spawnObjects.Length-1].transform, spawnObjects[0], objectDistance);
                 }
-
+                SetHeight(spawnObjects[spawnObjects.Length - 1]);
             }
         }
 
         public override void SpawnContinuously()
         {
-            float groundWidth = ObjectPhysicalInfoService.FindWidth(spawnObjects[0].GetComponent<Collider2D>());
             float spawnDistanceRange = UnityEngine.Random.Range(minDistance, maxDistance);
             if(minDistance<2f)
             {
@@ -63,31 +58,36 @@ namespace Assets.Scripts.Spawn
             else
             {
                 MoveForward(spawnObjects[spawnObjects.Length - 1].transform, spawnObjects[0], spawnDistanceRange);
-                SetHeight(spawnObjects[0]);
+                SetHeight(spawnObjects[spawnObjects.Length - 1]);
             }
-            SpawnService.FixSpawnArrayIndexs(ref spawnObjects);
             OnSpawnDone.Invoke();
 
         }
 
-        void SpawnDouble()
-        {
-            float newDistance = UnityEngine.Random.Range(maxDistance + 6f, maxDistance + 10f);
-
-            MoveForward(spawnObjects[spawnObjects.Length - 1].transform, spawnObjects[0], newDistance);
-            SpawnService.FixSpawnArrayIndexs(ref spawnObjects);
-            MoveForward(spawnObjects[spawnObjects.Length - 1].transform, spawnObjects[0], 0);
-            SetHeightDouble(spawnObjects[spawnObjects.Length - 1], spawnObjects[0]);
-        }
 
         public override void SpawnFirst()
         {
             spawnObjects = CreateObjectService.CreateMultiple(spawnObjectPrefab, spawnObjectCount);
-            float groundWidth = ObjectPhysicalInfoService.FindWidth(spawnObjects[0].GetComponent<Collider2D>());
             float spawnDistanceRange = UnityEngine.Random.Range(minDistance, maxDistance);
             MoveForwardMultiple(spawnStartPoint, spawnObjects, spawnDistanceRange);
         }
 
+        /// <summary>
+        /// Objeleri bir alt bir üst şeklinde ikili spawn eder
+        /// </summary>
+        void SpawnDouble()
+        {
+            float commonDistance = UnityEngine.Random.Range(maxDistance + 6f, maxDistance + 10f);
+
+            MoveForward(spawnObjects[spawnObjects.Length - 1].transform, spawnObjects[0], commonDistance);
+            MoveForward(spawnObjects[spawnObjects.Length - 1].transform, spawnObjects[0], 0);
+            SetHeightDouble(spawnObjects[spawnObjects.Length - 2], spawnObjects[spawnObjects.Length - 1]);
+        }
+
+        /// <summary>
+        /// Spawn objesini yukarı ya da aşağıya taşıyacak
+        /// </summary>
+        /// <param name="spawnObject"></param>
         void SetHeight(GameObject spawnObject)
         {
             float scaleY = Mathf.Abs(spawnObject.transform.localScale.y);
@@ -105,16 +105,17 @@ namespace Assets.Scripts.Spawn
             }
         }
 
+        /// <summary>
+        /// İkili şekilde gönderilen engellerin yüksekliğini ayarlar
+        /// </summary>
+        /// <param name="spawnObject1"></param>
+        /// <param name="spawnObject2"></param>
         void SetHeightDouble(GameObject spawnObject1, GameObject spawnObject2)
         {
-            
             ObjectTransformRandomization.RandomizeHeightDouble(spawnObject1.transform, spawnObject2.transform);
-            float scaleY = Mathf.Abs(spawnObject1.transform.localScale.y);
 
-            spawnObject1.transform.localScale = new Vector3(spawnObject1.transform.localScale.x, -scaleY, spawnObject1.transform.localScale.z);
-            spawnObject2.transform.localScale = new Vector3(spawnObject2.transform.localScale.x, scaleY, spawnObject2.transform.localScale.z);
-
-
+            spawnObject1.transform.localScale = new Vector3(spawnObject1.transform.localScale.x, -0.7f, 1f);
+            spawnObject2.transform.localScale = new Vector3(spawnObject1.transform.localScale.x, 0.7f, 1f);
         }
     }
 }

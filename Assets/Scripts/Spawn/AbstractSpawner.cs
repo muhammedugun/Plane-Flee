@@ -8,10 +8,13 @@ namespace Assets.Scripts.Spawn
     /// </summary>
     public abstract class AbstractSpawner : MonoBehaviour
     {
-
-        public int spawnObjectCount;
         /// <summary>
-        /// spawnlanacak objenin bir örneği
+        /// Kaç obje spawn edilecek bilgisi
+        /// </summary>
+        public int spawnObjectCount;
+
+        /// <summary>
+        /// Spawnlanacak objenin bir örneği
         /// </summary>
         public GameObject spawnObjectPrefab;
 
@@ -40,8 +43,9 @@ namespace Assets.Scripts.Spawn
         /// </summary>
         /// <param name="lastObjectTransform">son üretilmiş ya da son konumda duran objenin transformu</param>
         /// <param name="spawnObject">Pozisyonu ayarlanacak obje</param>
-        /// <param name="objectWidth">Pozisyonu ayarlanacak objenin genişliği</param>
-        public abstract void MoveForward(Transform lastObjectTransform, GameObject spawnObject, float objectWidth);
+        /// <param name="objectDistance">Pozisyonu ayarlanacak objenin önceki obje ile arasındaki mesafesi</param>
+        public abstract void MoveForward(Transform lastObjectTransform, GameObject spawnObject, float objectDistance);
+
 
         /// <summary>
         /// Parametre olarak gönderilen spawn nesnelerini ardışık olarak öne taşır.

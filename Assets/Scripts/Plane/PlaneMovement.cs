@@ -47,7 +47,11 @@ namespace Assets.Scripts.Plane
 
         public void SetRotation()
         {
-            planeRB.transform.rotation = Quaternion.Euler(0f, 0f, planeRB.velocity.y * rotationSpeed);
+            if(planeRB.velocity.y * rotationSpeed<25 && planeRB.velocity.y * rotationSpeed > -90)
+            {
+                planeRB.transform.rotation = Quaternion.Euler(0f, 0f, planeRB.velocity.y * rotationSpeed);
+            }
+            
         }
 
     }

@@ -19,7 +19,9 @@ namespace Assets.Scripts.Spawn
             foreach (var item in abstractSpawners)
             {
                 item.SpawnFirst();
+               
             }
+            
         }
         
 
