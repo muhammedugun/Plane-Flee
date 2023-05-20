@@ -9,9 +9,9 @@ namespace Assets.Scripts.Spawn
 
         public override void MoveForward(Transform obstacle, GameObject spawnObject, float objectWidth=0)
         {
-            spawnObjects[0].SetActive(true);
+            spawnObject.SetActive(true);
             var obstacleCollider = obstacle.GetComponent<PolygonCollider2D>();
-            spawnObject.transform.position = SetRandomPosition(spawnObjects[0], obstacleCollider);
+            spawnObject.transform.position = SetRandomPosition(spawnObject, obstacleCollider);
             SpawnService.FixSpawnArrayIndexs(ref spawnObjects);
 
         }
@@ -41,19 +41,19 @@ namespace Assets.Scripts.Spawn
 
         Vector2 SetRandomPosition(GameObject star,PolygonCollider2D obstacleCollider)
         {
-            float startPoint, xPos, yPos;
-            var starSprite = star.GetComponent<SpriteRenderer>();
-            if (obstacleCollider.bounds.center.y < 0)
+            float startPointY, xPos, yPos;
+            var starCollider = star.GetComponent<Collider2D>();
+            if (obstacleCollider.transform.position.y < 0)
             {
-                startPoint = obstacleCollider.transform.position.y + obstacleCollider.bounds.size.y + starSprite.bounds.size.y;
-                yPos = Random.Range(startPoint, startPoint + 2.1f);
+                startPointY = obstacleCollider.transform.position.y + obstacleCollider.bounds.size.y + starCollider.bounds.size.y;
+                yPos = Random.Range(startPointY, startPointY + 1.7f);
             }
             else
             {
-                startPoint = obstacleCollider.transform.position.y - obstacleCollider.bounds.size.y - starSprite.bounds.size.y;
-                yPos = Random.Range(startPoint, startPoint - 2.1f);
+                startPointY = obstacleCollider.transform.position.y - obstacleCollider.bounds.size.y - starCollider.bounds.size.y;
+                yPos = Random.Range(startPointY - 1.7f, startPointY);
             }
-            xPos = Random.Range(startPoint - 2.2f, startPoint + 2.2f) + obstacleCollider.transform.position.x;
+            xPos = obstacleCollider.transform.position.x + Random.Range(-2f, 2f);
            
             return new Vector2(xPos, yPos);
 

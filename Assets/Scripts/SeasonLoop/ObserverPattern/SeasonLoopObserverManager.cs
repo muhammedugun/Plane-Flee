@@ -36,7 +36,6 @@ namespace Assets.Scripts.SeasonLoop.ObserverPattern
                     GroundSpawner.OnSpawnDone += seasonLoop.ChangeSprite;
                 else if(seasonLoop as ObstacleSeasonLoop)
                 {
-                    UnityEngine.Debug.Log("Çalıştı");
                     ObstacleSpawner.OnSpawnDone += seasonLoop.ChangeSprite;
                     
                 }

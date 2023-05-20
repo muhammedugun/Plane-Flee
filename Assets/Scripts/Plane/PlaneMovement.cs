@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Audio;
+using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Plane
 {
@@ -7,6 +9,10 @@ namespace Assets.Scripts.Plane
     /// </summary>
     public class PlaneMovement : MonoBehaviour
     {
+        /// <summary>
+        /// Dikey olarak uçmaya başladıysam
+        /// </summary>
+        public static event Action OnFly;
         /// <summary>
         /// Yatay hareket hızı
         /// </summary>
@@ -30,6 +36,7 @@ namespace Assets.Scripts.Plane
         public void MoveHorizontal()
         {
             planeRB.velocity = new Vector2(horizontalSpeed, planeRB.velocity.y);
+            
         }
 
         /// <summary>
@@ -39,6 +46,7 @@ namespace Assets.Scripts.Plane
         {
             if (isInput)
             {
+                OnFly.Invoke();
                 planeRB.velocity = new Vector2(planeRB.velocity.x, verticalSpeed);
                 isInput = false;
             }

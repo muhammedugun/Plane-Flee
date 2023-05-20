@@ -5,7 +5,8 @@ namespace Assets.Scripts.Collection
 {
     public class StarCollection : MonoBehaviour
     {
-        //public static event Action OnCollectStar;
+        
+        public static event Action OnCollectStar;
 
         public ScoreDisplay scoreDisplay;
         public bool Check(Collider2D collision)
@@ -24,12 +25,8 @@ namespace Assets.Scripts.Collection
         {
             var animator = collision.GetComponent<Animator>();
             animator.SetTrigger("collect");
-            //OnCollectStar.Invoke();
-            scoreDisplay.UpdateScore(1);
+            OnCollectStar.Invoke();
         }
-
-        
-
 
         
     }

@@ -120,7 +120,7 @@ TextureImporter:
       name: planeYellow1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 4643
         width: 356
         height: 296
@@ -578,6 +578,321 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: smoke
+      rect:
+        serializedVersion: 2
+        x: 2276
+        y: 3089
+        width: 171
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc7882a3aed6d947bc7f5d812a31829
+      internalID: -1467731491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeYellow3
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 4643
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c0f2ebd92e90c468b1cd742ba1f1ea
+      internalID: -2058619573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeGreen1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 4283
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ed186a4054fe64bbf356c61b5c2ee6
+      internalID: 883619985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeBlue1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3923
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7719a8b421dade44781712ab895c8fb5
+      internalID: -240347838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeRed1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 3563
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4610926844a558848af133913e740c25
+      internalID: 1809016251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeGreen2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 4283
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0062f1c5ad8594646820b5566d80d775
+      internalID: -56998062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeBlue2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 3923
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a16e86c30c5a1e4e92332bcc987e5f4
+      internalID: -247915239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeRed2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 3563
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4505ed1ed3cd2744bbd0f743420f072d
+      internalID: 389106338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeGreen3
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 4283
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503d2b5e45c61a544b469a7207efea6e
+      internalID: -975860079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeBlue3
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 3923
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4077dcfc303c547bbae4d338435975
+      internalID: 1316663307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeRed3
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 3563
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d5f7494f7bca74692069474e516c42
+      internalID: 868820069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: planeYellow2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 4643
+        width: 356
+        height: 296
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7789ac61c547e8449b29d13edaa50cf7
+      internalID: 639847610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button1
+      rect:
+        serializedVersion: 2
+        x: 4708
+        y: 4613
+        width: 549
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a9373e21c447c4cbc7fe34dea53364
+      internalID: 1099266103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button2
+      rect:
+        serializedVersion: 2
+        x: 4708
+        y: 4252
+        width: 790
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d212c81329544b4fbf7e28ef04d97db
+      internalID: -1255147615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel1
+      rect:
+        serializedVersion: 2
+        x: 4708
+        y: 3112
+        width: 1060
+        height: 1062
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a285f3d93bb6189468ff4a85ee86ae18
+      internalID: -489974031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -600,16 +915,31 @@ TextureImporter:
       8: -896139391
       9: -675336790
       background: 914397499
+      button1: 1099266103
+      button2: -1255147615
       groundDirt: 297157327
       groundGrass: -1538141770
       groundIce: 164295540
       groundRock: -54793095
       groundSnow: -1860201509
+      panel1: -489974031
+      planeBlue1: -240347838
+      planeBlue2: -247915239
+      planeBlue3: 1316663307
+      planeGreen1: 883619985
+      planeGreen2: -56998062
+      planeGreen3: -975860079
+      planeRed1: 1809016251
+      planeRed2: 389106338
+      planeRed3: 868820069
       planeYellow1: 1464067467
+      planeYellow2: 639847610
+      planeYellow3: -2058619573
       rockDirt: -248771170
       rockGrass: 1148608830
       rockIcle: 2048366132
       rockSnow: -827985115
+      smoke: -1467731491
       starYellow: -1036344315
   spritePackingTag: 
   pSDRemoveMatte: 0

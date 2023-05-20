@@ -8,7 +8,7 @@ namespace Assets.Scripts.Plane
     public class PlaneManager : MonoBehaviour
     {
         public PlaneMovement planeMovement;
-        MobileInputController mobilInputController;
+        internal MobileInputController mobilInputController;
 
        
         private void Awake()

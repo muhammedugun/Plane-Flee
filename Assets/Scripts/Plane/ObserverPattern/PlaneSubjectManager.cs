@@ -27,7 +27,7 @@ namespace Assets.Scripts.Plane.ObserverPattern
         private void LateUpdate()
         {
             NotifyTargetObject(groundSpawner, targetGroundSubject, groundSpawner.spawnObjects.Length - 2);
-            NotifyTargetObject(obstacleSpawner, targetObstacleSubject, obstacleSpawner.spawnObjects.Length -4);
+            NotifyTargetObject(obstacleSpawner, targetObstacleSubject, obstacleSpawner.spawnObjects.Length -5);
         }
 
         void NotifyTargetObject(AbstractSpawner abstractSpawner, TargetObjectSubject targetObjectSubject, int targetObjectIndex)

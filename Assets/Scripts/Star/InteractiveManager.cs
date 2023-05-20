@@ -6,7 +6,6 @@ namespace Assets.Scripts.Star
     {
         public void SetDisable()
         {
-            Debug.Log("SetDisable");
             gameObject.SetActive(false);
         }
     }
