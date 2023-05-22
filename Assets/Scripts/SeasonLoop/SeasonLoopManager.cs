@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Spawn;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.SeasonLoop
 {
@@ -17,7 +16,7 @@ namespace Assets.Scripts.SeasonLoop
 
         private void Start()
         {
-            SetNextLoopTime();
+            nextLoopTime = Time.time + loopDuration;
             foreach (var seasonLoop in seasonLoops)
             {
                 seasonLoop.ResetSpriteCount();

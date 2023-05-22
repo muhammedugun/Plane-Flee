@@ -7,13 +7,8 @@ namespace Assets.Scripts.Optimization
         AbstractFPSTuner fPSTuner;
         private void Awake()
         {
-            DontDestroyOnLoad(this.gameObject);
             fPSTuner = GetComponent<AbstractFPSTuner>();
             fPSTuner.SetToMaximumFPS();
-            
         }
-
-
-        
     }
 }

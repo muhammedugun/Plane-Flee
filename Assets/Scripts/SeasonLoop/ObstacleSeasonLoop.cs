@@ -4,6 +4,10 @@ namespace Assets.Scripts.SeasonLoop
 {
     public class ObstacleSeasonLoop : AbstractSeasonLoop
     {
+        private void Awake()
+        {
+            currentObjectSpriteIndex = 0;
+        }
 
         private void Start()
         {

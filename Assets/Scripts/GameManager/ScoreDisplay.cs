@@ -17,6 +17,8 @@ public class ScoreDisplay : MonoBehaviour
     /// </summary>
     public int score = 0;
 
+
+
     private void Start()
     {
         UpdateScoreDisplay();

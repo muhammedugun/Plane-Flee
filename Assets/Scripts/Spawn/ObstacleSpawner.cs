@@ -82,6 +82,7 @@ namespace Assets.Scripts.Spawn
             MoveForward(spawnObjects[spawnObjects.Length - 1].transform, spawnObjects[0], commonDistance);
             MoveForward(spawnObjects[spawnObjects.Length - 1].transform, spawnObjects[0], 0);
             SetHeightDouble(spawnObjects[spawnObjects.Length - 2], spawnObjects[spawnObjects.Length - 1]);
+         
         }
 
         /// <summary>
@@ -115,7 +116,7 @@ namespace Assets.Scripts.Spawn
             ObjectTransformRandomization.RandomizeHeightDouble(spawnObject1.transform, spawnObject2.transform);
 
             spawnObject1.transform.localScale = new Vector3(spawnObject1.transform.localScale.x, -0.7f, 1f);
-            spawnObject2.transform.localScale = new Vector3(spawnObject1.transform.localScale.x, 0.7f, 1f);
+            spawnObject2.transform.localScale = new Vector3(spawnObject2.transform.localScale.x, 0.7f, 1f);
         }
     }
 }

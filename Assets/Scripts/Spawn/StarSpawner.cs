@@ -10,8 +10,7 @@ namespace Assets.Scripts.Spawn
         public override void MoveForward(Transform obstacle, GameObject spawnObject, float objectWidth=0)
         {
             spawnObject.SetActive(true);
-            var obstacleCollider = obstacle.GetComponent<PolygonCollider2D>();
-            spawnObject.transform.position = SetRandomPosition(spawnObject, obstacleCollider);
+            spawnObject.transform.position = SetRandomPosition(obstacle);
             SpawnService.FixSpawnArrayIndexs(ref spawnObjects);
 
         }
@@ -39,24 +38,23 @@ namespace Assets.Scripts.Spawn
         
         }
 
-        Vector2 SetRandomPosition(GameObject star,PolygonCollider2D obstacleCollider)
+        Vector2 SetRandomPosition(Transform obstacle)
         {
+            var obstacleCollider = obstacle.GetComponent<PolygonCollider2D>();
             float startPointY, xPos, yPos;
-            var starCollider = star.GetComponent<Collider2D>();
+          
             if (obstacleCollider.transform.position.y < 0)
             {
-                startPointY = obstacleCollider.transform.position.y + obstacleCollider.bounds.size.y + starCollider.bounds.size.y;
+                startPointY = obstacleCollider.transform.position.y + (obstacleCollider.bounds.extents.y*2f) + 1f;
                 yPos = Random.Range(startPointY, startPointY + 1.7f);
             }
             else
             {
-                startPointY = obstacleCollider.transform.position.y - obstacleCollider.bounds.size.y - starCollider.bounds.size.y;
+                startPointY = obstacleCollider.transform.position.y - obstacleCollider.bounds.size.y - 1f;
                 yPos = Random.Range(startPointY - 1.7f, startPointY);
             }
-            xPos = obstacleCollider.transform.position.x + Random.Range(-2f, 2f);
-           
+            xPos = obstacleCollider.transform.position.x + Random.Range(-2.5f, 2.5f);
             return new Vector2(xPos, yPos);
-
         }
 
     }

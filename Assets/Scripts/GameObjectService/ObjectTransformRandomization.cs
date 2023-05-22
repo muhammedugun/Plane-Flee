@@ -40,8 +40,6 @@ namespace Assets.Scripts.GameObjectService
             SetHeight(gameObjectTransform1, object1Y);
             SetHeight(gameObjectTransform2, object2Y);
 
-            //gameObjectTransform1.position = new Vector3(gameObjectTransform1.position.x, object1Y, gameObjectTransform1.position.z);
-            //gameObjectTransform2.position = new Vector3(gameObjectTransform2.position.x, object2Y, gameObjectTransform2.position.z);
         }
 
 

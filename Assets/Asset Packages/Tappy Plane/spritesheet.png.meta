@@ -839,7 +839,7 @@ TextureImporter:
         width: 549
         height: 326
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -860,7 +860,7 @@ TextureImporter:
         width: 790
         height: 288
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -881,7 +881,7 @@ TextureImporter:
         width: 1060
         height: 1062
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -889,6 +889,111 @@ TextureImporter:
       bones: []
       spriteID: a285f3d93bb6189468ff4a85ee86ae18
       internalID: -489974031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: leftTap
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 3330
+        width: 343
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82530c172b759704e9b985a7f0027ec7
+      internalID: 851956979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: click1
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 3243
+        width: 159
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38882822a22efc24896d54947183b42a
+      internalID: 362935658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: click2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 3240
+        width: 241
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b6b54b98f7bca4c97799b97f672fb5
+      internalID: -1334629026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rightTap
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 3131
+        width: 343
+        height: 171
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279cfd2fa6c01604aa143fe72dfa9fa4
+      internalID: -1666294320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gameOver
+      rect:
+        serializedVersion: 2
+        x: 3607
+        y: 5029
+        width: 1649
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04ba79a2350d214c8458a7132ad5d7d
+      internalID: -1015396241
       vertices: []
       indices: 
       edges: []
@@ -917,11 +1022,15 @@ TextureImporter:
       background: 914397499
       button1: 1099266103
       button2: -1255147615
+      click1: 362935658
+      click2: -1334629026
+      gameOver: -1015396241
       groundDirt: 297157327
       groundGrass: -1538141770
       groundIce: 164295540
       groundRock: -54793095
       groundSnow: -1860201509
+      leftTap: 851956979
       panel1: -489974031
       planeBlue1: -240347838
       planeBlue2: -247915239
@@ -935,6 +1044,7 @@ TextureImporter:
       planeYellow1: 1464067467
       planeYellow2: 639847610
       planeYellow3: -2058619573
+      rightTap: -1666294320
       rockDirt: -248771170
       rockGrass: 1148608830
       rockIcle: 2048366132

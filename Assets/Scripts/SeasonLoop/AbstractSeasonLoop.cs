@@ -12,22 +12,23 @@ namespace Assets.Scripts.SeasonLoop
 
         public Sprite[] objectSprites;
 
-
         /// <summary>
         /// mevcut objelerden değişen sprite sayısı
         /// </summary>
-        protected int changingObjectSpriteCount;
+        public int changingObjectSpriteCount;
 
         /// <summary>
         /// Şuanki mevsimin sprite indeksi
         /// </summary>
-        protected int currentObjectSpriteIndex;
+        public int currentObjectSpriteIndex;
 
         /// <summary>
         /// objectSprites dizisinin başındaki objenin sprite'ını mevcut mevsime göre değiştirir
         /// </summary>
         public virtual void ChangeSprite()
         {
+            Debug.Log("changingObjectSpriteCount" + changingObjectSpriteCount);
+            Debug.Log("currentObjectSpriteIndex" + currentObjectSpriteIndex);
             if (changingObjectSpriteCount < spawner.spawnObjects.Length)
             {
                 var firstObject = spawner.spawnObjects[0];
@@ -39,7 +40,7 @@ namespace Assets.Scripts.SeasonLoop
         /// <summary>
         /// Gönderilen objenin sprite'ını değiştirir
         /// </summary>
-        protected void SetSprite(GameObject gameObject, Sprite sprite)
+        public void SetSprite(GameObject gameObject, Sprite sprite)
         {
             var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprite;
