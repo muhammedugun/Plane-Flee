@@ -7,9 +7,12 @@ namespace Assets.Scripts.Plane.ObserverPattern
     {
         Animator animator;
         [SerializeField] RuntimeAnimatorController bangAnimatorController;
+        MobileInputController mobileInputController;
+
 
         private void Awake()
         {
+            mobileInputController = GetComponent<MobileInputController>();
             animator = GetComponent<Animator>();
         }
         void Start()
@@ -26,8 +29,10 @@ namespace Assets.Scripts.Plane.ObserverPattern
         void SetAnimController()
         {
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-            GameController.PauseGame();
+            GameController.PauseGame(mobileInputController);
             animator.runtimeAnimatorController = bangAnimatorController;
         }
+
+        
     }
 }

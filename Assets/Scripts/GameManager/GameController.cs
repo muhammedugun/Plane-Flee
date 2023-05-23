@@ -6,6 +6,7 @@ namespace Assets.Scripts.GameManager
 {
     public class GameController : MonoBehaviour
     {
+        
         [SerializeField] GameObject plane;
         static PlaneManager planeManager;
         static Rigidbody2D planeRigidBody;
@@ -16,24 +17,30 @@ namespace Assets.Scripts.GameManager
             planeRigidBody = plane.GetComponent<Rigidbody2D>();
         }
 
-        public static void PauseGame()
+        public static void PauseGame(MobileInputController mobileInputController = null)
         {
-            Time.timeScale = 0f;
+            if(mobileInputController!=null)
+            mobileInputController.enabled = false;
             planeRigidBody.simulated = false;
             planeManager.enabled = false;
+            Time.timeScale = 0f;
         }
 
-        public static void ResumeGame()
+        public static void ResumeGame(MobileInputController mobileInputController)
         {
-            Time.timeScale = 1f;
+            mobileInputController.enabled = true;
             planeRigidBody.simulated = true;
             planeManager.enabled = true;
+            Time.timeScale = 1f;
+        }
+
+        public static void PlayGame()
+        {
+            SceneManager.LoadScene("Game");
         }
 
         public static void RestartGame()
         {
-
-            //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 

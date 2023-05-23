@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.Plane;
-using Assets.Scripts.Spawn;
-using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.GameDifficulty
@@ -20,7 +18,7 @@ namespace Assets.Scripts.GameDifficulty
         {
             if (Time.time >= nextDifficultyTime && planeMovement.horizontalSpeed <= 15f)
             {
-                planeMovement.horizontalSpeed += 0.1f;
+                planeMovement.horizontalSpeed += 0.2f;
                 SetNextDifficultyTime();
             }
 

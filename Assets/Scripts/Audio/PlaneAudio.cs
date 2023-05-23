@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Audio
 {
     public class PlaneAudio : MonoBehaviour
     {
+        [SerializeField] AudioClip explosion;
         static AudioSource audioSource;
         private void Awake()
         {
@@ -15,6 +15,12 @@ namespace Assets.Scripts.Audio
         {
             audioSource.Play();
         }
-        
+
+        public void ExplosionSound()
+        {
+            audioSource.clip = explosion;
+            audioSource.Play();
+        }
+
     }
 }
