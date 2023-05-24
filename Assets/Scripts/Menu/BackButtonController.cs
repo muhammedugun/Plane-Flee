@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Menu
 {
     public class BackButtonController : MonoBehaviour
     {
+        public GameMenu gameMenu;
         private float lastClickTime;
         private float doubleClickDelay = 0.2f;
 
-        MenuManager menuManager;
         bool isOpenMenuActive;
 
-        private void Awake()
-        {
-            menuManager = GetComponent<MenuManager>();
-        }
+       
 
         private void Update()
         {
@@ -42,8 +38,8 @@ namespace Assets.Scripts.Menu
 
         private void OpenMenu()
         {
-            
-            menuManager.PauseButton();
+
+            gameMenu.PauseButton();
             isOpenMenuActive = true;
         }
 

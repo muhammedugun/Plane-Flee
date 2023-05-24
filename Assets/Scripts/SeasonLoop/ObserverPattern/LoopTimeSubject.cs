@@ -23,7 +23,6 @@ namespace Assets.Scripts.Spawn.ObserverPattern
         {
             if (Time.time >= nextLoopTime)
             {
-                Debug.Log("Time: " +  Time.time);
                 OnLoopTimeReached.Invoke();
             }
         }

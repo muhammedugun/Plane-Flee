@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Audio
+namespace Assets.Scripts.Sound
 {
-    public class PlaneAudio : MonoBehaviour
+    public class PlaneSound : MonoBehaviour
     {
         [SerializeField] AudioClip explosion;
         static AudioSource audioSource;

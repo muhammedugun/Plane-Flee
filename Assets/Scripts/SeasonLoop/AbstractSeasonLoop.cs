@@ -27,8 +27,6 @@ namespace Assets.Scripts.SeasonLoop
         /// </summary>
         public virtual void ChangeSprite()
         {
-            Debug.Log("changingObjectSpriteCount" + changingObjectSpriteCount);
-            Debug.Log("currentObjectSpriteIndex" + currentObjectSpriteIndex);
             if (changingObjectSpriteCount < spawner.spawnObjects.Length)
             {
                 var firstObject = spawner.spawnObjects[0];

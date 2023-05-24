@@ -8,6 +8,8 @@ namespace Assets.Scripts.GameManager
     {
         
         [SerializeField] GameObject plane;
+        [SerializeField] SpriteRenderer planeSpriteRenderer;
+        [SerializeField] Sprite yellowPlaneSprite, bluePlaneSprite, greenPlaneSprite, redPlaneSprite;
         static PlaneManager planeManager;
         static Rigidbody2D planeRigidBody;
 
@@ -15,6 +17,31 @@ namespace Assets.Scripts.GameManager
         {
             planeManager = plane.GetComponent<PlaneManager>();
             planeRigidBody = plane.GetComponent<Rigidbody2D>();
+        }
+        private void Start()
+        {
+            //Uçak skini ile ilgili işlemler
+            if (!PlayerPrefs.HasKey("checkMark"))
+            {
+                PlayerPrefs.SetInt("checkMark", 0);
+            }
+            else
+            {
+                switch (PlayerPrefs.GetInt("checkMark"))
+                {
+                    case 0:
+                        planeSpriteRenderer.sprite = yellowPlaneSprite; break;
+                    case 1:
+                        planeSpriteRenderer.sprite = bluePlaneSprite; break;
+                    case 2:
+                        planeSpriteRenderer.sprite = greenPlaneSprite; break;
+                    case 3:
+                        planeSpriteRenderer.sprite = redPlaneSprite; break;
+                    default:
+                        break;
+                }
+
+            }
         }
 
         public static void PauseGame(MobileInputController mobileInputController = null)
@@ -41,7 +68,7 @@ namespace Assets.Scripts.GameManager
 
         public static void RestartGame()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Game");
         }
 
         public static void QuitGame()
