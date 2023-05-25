@@ -74,6 +74,7 @@ namespace Assets.Scripts.Skin
 
         public void ButtonYellow()
         {
+            
             PlayerPrefs.SetInt("checkMark", 0);
             yellowCheckMark.SetActive(true);
             blueCheckMark.SetActive(false);
@@ -83,27 +84,37 @@ namespace Assets.Scripts.Skin
 
         public void ButtonBlue()
         {
-            PlayerPrefs.SetInt("checkMark", 1);
-            yellowCheckMark.SetActive(false);
-            blueCheckMark.SetActive(true);
-            greenCheckMark.SetActive(false);
-            redCheckMark.SetActive(false);
+            if ((PlayerPrefs.GetInt("blueLockText") == 1))
+            {
+                PlayerPrefs.SetInt("checkMark", 1);
+                yellowCheckMark.SetActive(false);
+                blueCheckMark.SetActive(true);
+                greenCheckMark.SetActive(false);
+                redCheckMark.SetActive(false);
+            }
+                
         }
         public void ButtonGreen()
         {
-            PlayerPrefs.SetInt("checkMark", 2);
-            yellowCheckMark.SetActive(false);
-            blueCheckMark.SetActive(false);
-            greenCheckMark.SetActive(true);
-            redCheckMark.SetActive(false);
+            if ((PlayerPrefs.GetInt("greenLockText") == 1))
+            {
+                PlayerPrefs.SetInt("checkMark", 2);
+                yellowCheckMark.SetActive(false);
+                blueCheckMark.SetActive(false);
+                greenCheckMark.SetActive(true);
+                redCheckMark.SetActive(false);
+            }
         }
         public void ButtonRed()
         {
-            PlayerPrefs.SetInt("checkMark", 3);
-            yellowCheckMark.SetActive(false);
-            blueCheckMark.SetActive(false);
-            greenCheckMark.SetActive(false);
-            redCheckMark.SetActive(true);
+            if ((PlayerPrefs.GetInt("redLockText") == 1))
+            {
+                PlayerPrefs.SetInt("checkMark", 3);
+                yellowCheckMark.SetActive(false);
+                blueCheckMark.SetActive(false);
+                greenCheckMark.SetActive(false);
+                redCheckMark.SetActive(true);
+            }
         }
     }
 }

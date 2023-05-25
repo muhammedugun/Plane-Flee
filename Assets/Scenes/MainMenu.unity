@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicsController: {fileID: 26733883}
+  gameMusic: {fileID: 0}
 --- !u!114 &26733885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2247,7 +2248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &835160275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2970,6 +2971,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1288021313}
   - component: {fileID: 1288021314}
+  - component: {fileID: 1288021315}
+  - component: {fileID: 1288021316}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -3014,6 +3017,39 @@ MonoBehaviour:
   musicOffSprite: {fileID: 21300000, guid: 2b474ab36d79a9240ac19fcbc9d0f21c, type: 3}
   soundEffectOnSprite: {fileID: 0}
   soundEffectOffSprite: {fileID: 0}
+  gameController: {fileID: 1288021316}
+--- !u!114 &1288021315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288021310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b945ebe9329ba754fbefeddc18f56ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMenu: {fileID: 0}
+--- !u!114 &1288021316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288021310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e6ebf31ba98434eb530f820cf1d1cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plane: {fileID: 0}
+  planeSpriteRenderer: {fileID: 0}
+  yellowPlaneSprite: {fileID: 0}
+  bluePlaneSprite: {fileID: 0}
+  greenPlaneSprite: {fileID: 0}
+  redPlaneSprite: {fileID: 0}
+  sceneName: 
 --- !u!1 &1340457442
 GameObject:
   m_ObjectHideFlags: 0

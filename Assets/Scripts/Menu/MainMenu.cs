@@ -14,6 +14,8 @@ namespace Assets.Scripts.Menu
         [SerializeField] GameObject musicButton, soundEffectButton;
         [SerializeField] Sprite musicOnSprite, musicOffSprite, soundEffectOnSprite, soundEffectOffSprite;
 
+        public GameController gameController;
+
         private void Start()
         {
             MusicButtonControlStart();
@@ -56,7 +58,7 @@ namespace Assets.Scripts.Menu
 
         public void PlayButton()
         {
-            GameController.PlayGame();
+            gameController.PlayGame();
         }
 
         public void SkinsButton()

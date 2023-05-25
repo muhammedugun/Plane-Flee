@@ -12,11 +12,13 @@ namespace Assets.Scripts.Sound
 
         public void Play()
         {
+            
             musicSource.clip = musicClip;
             musicSource.Play();
         }
         public void MultiPlay()
         {
+            currentMusicIndex = Random.Range(0, musicClips.Length);
             musicSource.clip = musicClips[currentMusicIndex];
             musicSource.Play();
         }

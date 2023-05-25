@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Menu
 {
@@ -14,11 +15,12 @@ namespace Assets.Scripts.Menu
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && !isOpenMenuActive)
+
+            if (SceneManager.GetActiveScene().name == "Game" && Input.GetKeyDown(KeyCode.Escape) && !isOpenMenuActive)
             {
                 OpenMenu();
             }
-            else if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
                 OnPanelPointerClick();
             }

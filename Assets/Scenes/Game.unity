@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreDisplay: {fileID: 682919042}
   gameMenu: {fileID: 98256584}
+  gameController: {fileID: 1726500408}
 --- !u!4 &98256582
 Transform:
   m_ObjectHideFlags: 0
@@ -200,6 +201,7 @@ MonoBehaviour:
   pausePanel: {fileID: 2039308516}
   mobileInputController: {fileID: 1595220941}
   startPanel: {fileID: 1913622637}
+  gameController: {fileID: 1726500408}
 --- !u!114 &98256585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +224,7 @@ MonoBehaviour:
   musicOffSprite: {fileID: 21300000, guid: 2b474ab36d79a9240ac19fcbc9d0f21c, type: 3}
   soundEffectOnSprite: {fileID: 21300000, guid: 3bf71bda423b0464f8fe6d8346e98c01, type: 3}
   soundEffectOffSprite: {fileID: 21300000, guid: 17b10cf4d02fb424188a5a640b481744, type: 3}
+  gameController: {fileID: 0}
 --- !u!1 &99829098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2669,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 29ad6917bacd5d44e903da874f7e2346, type: 3}
   - {fileID: 8300000, guid: 2d13342bebdde544f8e42ddcb57da0fc, type: 3}
   - {fileID: 8300000, guid: 291c4c62dc11bef49a54c35d5313a8c6, type: 3}
+  - {fileID: 8300000, guid: 6863a44294fae6a4da085b9e9b028818, type: 3}
 --- !u!1 &1385700501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,6 +4169,7 @@ MonoBehaviour:
   bluePlaneSprite: {fileID: -240347838, guid: 8bdb91d6165655748bb5da6c1c21aa48, type: 3}
   greenPlaneSprite: {fileID: 883619985, guid: 8bdb91d6165655748bb5da6c1c21aa48, type: 3}
   redPlaneSprite: {fileID: 1809016251, guid: 8bdb91d6165655748bb5da6c1c21aa48, type: 3}
+  sceneName: 
 --- !u!114 &1726500409
 MonoBehaviour:
   m_ObjectHideFlags: 0

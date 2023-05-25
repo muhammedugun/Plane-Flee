@@ -1,8 +1,6 @@
 ﻿using Assets.Scripts.GameManager;
 using Assets.Scripts.Plane.ObserverPattern;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Menu
 {
@@ -10,6 +8,7 @@ namespace Assets.Scripts.Menu
     {
         [SerializeField] ScoreDisplay scoreDisplay;
         [SerializeField] GameMenu gameMenu;
+        public GameController gameController;
 
         
         
@@ -55,7 +54,8 @@ namespace Assets.Scripts.Menu
 
         void ShowGameOverPanel()
         {
-            SceneManager.LoadScene("GameOver");
+            gameController.asyncLoad.allowSceneActivation = true;
+            //SceneManager.LoadScene("GameOver");
         }
 
   

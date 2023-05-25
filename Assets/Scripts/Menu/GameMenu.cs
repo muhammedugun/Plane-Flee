@@ -13,6 +13,7 @@ namespace Assets.Scripts.Menu
         internal bool isPausePanelActive = false;
         public MobileInputController mobileInputController;
         [SerializeField] internal GameObject startPanel;
+        [SerializeField] GameController gameController;
         public void PauseButton()
         {
             isPausePanelActive = true;
@@ -44,6 +45,7 @@ namespace Assets.Scripts.Menu
         public void MainMenuButton()
         {
             SceneManager.LoadScene("MainMenu");
+            
         }
 
 
