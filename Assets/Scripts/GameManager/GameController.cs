@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Plane;
+﻿using Assets.Scripts.Ads;
+using Assets.Scripts.Plane;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -89,6 +90,7 @@ namespace Assets.Scripts.GameManager
         public void PlayGame()
         {
             asyncLoad.allowSceneActivation = true;
+           
         }
 
         public static void RestartGame()

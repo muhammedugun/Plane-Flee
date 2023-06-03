@@ -1,5 +1,7 @@
-﻿using Assets.Scripts.GameManager;
+﻿using Assets.Scripts.Ads;
+using Assets.Scripts.GameManager;
 using Assets.Scripts.Plane;
+using GoogleMobileAds.Api;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,8 +9,8 @@ namespace Assets.Scripts.Menu
 {
     public class GameMenu : MonoBehaviour
     {
-     
 
+        
         [SerializeField] internal GameObject pausePanel;
         internal bool isPausePanelActive = false;
         public MobileInputController mobileInputController;
@@ -19,7 +21,6 @@ namespace Assets.Scripts.Menu
             isPausePanelActive = true;
             GameController.PauseGame(mobileInputController);
             pausePanel.SetActive(true);
-           
         }
 
         public void ResumeButton()
@@ -41,11 +42,49 @@ namespace Assets.Scripts.Menu
         {
             GameController.RestartGame();
         }
-
+    
         public void MainMenuButton()
         {
+            if(PlayerPrefs.HasKey("GameOverCount"))
+            {
+                if (PlayerPrefs.GetInt("GameOverCount") >= 5 && Time.time >= AdManager.nextTime)
+                {
+                    PlayerPrefs.SetInt("GameOverCount", 0);
+                    AdManager.nextTime = Time.time + 420f;
+                    if (!AdManager.isAdRequest)
+                    {
+                        AdManager.Instance.LoadInterstitialAd();
+                        LoadMainMenu();
+                    }
+                    else
+                    {
+                        AdManager.Instance.interstitialAd.OnAdFullScreenContentClosed += LoadMainMenu;
+                        AdManager.Instance.interstitialAd.OnAdFullScreenContentFailed += LoadMainMenu;
+                        AdManager.Instance.ShowAd();
+                    }
+                }
+                else
+                {
+                    LoadMainMenu();
+                }
+
+            }
+            else
+            {
+                LoadMainMenu();
+            }
+        }
+
+        public void LoadMainMenu(AdError adError)
+        {
             SceneManager.LoadScene("MainMenu");
-            
+            AdManager.Instance.interstitialAd.OnAdFullScreenContentFailed -= LoadMainMenu;
+        }
+
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
+            AdManager.Instance.interstitialAd.OnAdFullScreenContentClosed -= LoadMainMenu;
         }
 
 

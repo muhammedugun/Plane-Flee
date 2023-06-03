@@ -11,6 +11,15 @@ namespace Assets.Scripts.Plane.ObserverPattern
         {
             if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("ground"))
             {
+                if (!PlayerPrefs.HasKey("GameOverCount"))
+                {
+                    PlayerPrefs.SetInt("GameOverCount", 0);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("GameOverCount", PlayerPrefs.GetInt("GameOverCount") + 1);
+                }
+
                 OnTriggerEnter.Invoke();
             }
         }

@@ -1,5 +1,7 @@
-﻿using Assets.Scripts.GameManager;
+﻿using Assets.Scripts.Ads;
+using Assets.Scripts.GameManager;
 using Assets.Scripts.Sound;
+using GoogleMobileAds.Api;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -55,10 +57,57 @@ namespace Assets.Scripts.Menu
             GameController.QuitGame();
 
         }
+        public static bool isEventRegistered = false;
 
         public void PlayButton()
         {
+            if (PlayerPrefs.HasKey("GameOverCount"))
+            {
+                //Debug.Log("HasKey");
+                if (PlayerPrefs.GetInt("GameOverCount") >= 5 && Time.time >= AdManager.nextTime)
+                {
+                    //Debug.Log("GetInt");
+                    PlayerPrefs.SetInt("GameOverCount", 0);
+                    AdManager.nextTime = Time.time + 420f;
+                    if (!AdManager.isAdRequest)
+                    {
+                        //Debug.Log("isAdRequest false");
+                        AdManager.Instance.LoadInterstitialAd();
+                        LoadPlayGame();
+                    }
+                    else
+                    {
+                        //Debug.Log("ic else 2");
+                        AdManager.Instance.interstitialAd.OnAdFullScreenContentClosed += LoadPlayGame;
+                        AdManager.Instance.interstitialAd.OnAdFullScreenContentFailed += LoadPlayGame;
+                        AdManager.Instance.ShowAd();
+                    }
+
+                }
+                else
+                {
+                    //Debug.Log("ic else");
+                    LoadPlayGame();
+                }
+            }  
+            else
+            {
+                //Debug.Log("dis else");
+                LoadPlayGame();
+            }
+
+        }
+
+        public void LoadPlayGame(AdError adError)
+        {
             gameController.PlayGame();
+            AdManager.Instance.interstitialAd.OnAdFullScreenContentFailed -= LoadPlayGame;
+        }
+
+        public void LoadPlayGame()
+        {
+            gameController.PlayGame();
+            AdManager.Instance.interstitialAd.OnAdFullScreenContentClosed -= LoadPlayGame;
         }
 
         public void SkinsButton()
