@@ -47,10 +47,10 @@ namespace Assets.Scripts.Menu
         {
             if(PlayerPrefs.HasKey("GameOverCount"))
             {
-                if (PlayerPrefs.GetInt("GameOverCount") >= 5 && Time.time >= AdManager.nextTime)
+                if (PlayerPrefs.GetInt("GameOverCount") >= 3 && Time.time >= AdManager.nextTime)
                 {
                     PlayerPrefs.SetInt("GameOverCount", 0);
-                    AdManager.nextTime = Time.time + 420f;
+                    AdManager.nextTime = Time.time + 150f;
                     if (!AdManager.isAdRequest)
                     {
                         AdManager.Instance.LoadInterstitialAd();

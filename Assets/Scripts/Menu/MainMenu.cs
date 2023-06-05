@@ -64,11 +64,11 @@ namespace Assets.Scripts.Menu
             if (PlayerPrefs.HasKey("GameOverCount"))
             {
                 //Debug.Log("HasKey");
-                if (PlayerPrefs.GetInt("GameOverCount") >= 5 && Time.time >= AdManager.nextTime)
+                if (PlayerPrefs.GetInt("GameOverCount") >= 3 && Time.time >= AdManager.nextTime)
                 {
                     //Debug.Log("GetInt");
                     PlayerPrefs.SetInt("GameOverCount", 0);
-                    AdManager.nextTime = Time.time + 420f;
+                    AdManager.nextTime = Time.time + 150f;
                     if (!AdManager.isAdRequest)
                     {
                         //Debug.Log("isAdRequest false");

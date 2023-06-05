@@ -13,7 +13,10 @@ namespace Assets.Scripts.Ads
         public static AdManager Instance;
         public InterstitialAd interstitialAd;
         internal static float nextTime;
+        // benim reklam kimliðim
         private string _adUnitId = "ca-app-pub-6513010104233624/5285876184";
+        // test reklam kimliði
+        //private string _adUnitId = "ca-app-pub-3940256099942544/1033173712";
 
         void Start()
         {
@@ -26,7 +29,7 @@ namespace Assets.Scripts.Ads
                 {
                     LoadInterstitialAd();
                 });
-                nextTime = Time.time + 420f;
+                nextTime = Time.time + 150f;
             }
             else if(Instance != this)
             {
