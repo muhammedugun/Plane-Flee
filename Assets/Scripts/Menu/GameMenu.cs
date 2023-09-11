@@ -13,13 +13,12 @@ namespace Assets.Scripts.Menu
         
         [SerializeField] internal GameObject pausePanel;
         internal bool isPausePanelActive = false;
-        public MobileInputController mobileInputController;
         [SerializeField] internal GameObject startPanel;
         [SerializeField] GameController gameController;
         public void PauseButton()
         {
             isPausePanelActive = true;
-            GameController.PauseGame(mobileInputController);
+            GameController.PauseGame();
             pausePanel.SetActive(true);
         }
 

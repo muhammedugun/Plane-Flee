@@ -38,17 +38,15 @@ namespace Assets.Scripts.Plane
             
         }
 
+       
         /// <summary>
         /// Uçağı dikey eksende hareket ettirir
         /// </summary>
-        public void MoveVertical(ref bool isInput)
+        public void MoveVertical()
         {
-            if (isInput)
-            {
-                OnFly.Invoke();
-                planeRB.velocity = new Vector2(planeRB.velocity.x, verticalSpeed);
-                isInput = false;
-            }
+            
+            OnFly.Invoke();
+            planeRB.velocity = new Vector2(planeRB.velocity.x, verticalSpeed);
         }
 
 

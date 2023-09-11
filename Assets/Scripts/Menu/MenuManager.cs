@@ -23,7 +23,7 @@ namespace Assets.Scripts.Menu
         {
             if (Time.timeScale == 0f && Input.touchCount > 0 && !gameMenu.isPausePanelActive)
             {
-                GameController.ResumeGame(gameMenu.mobileInputController);
+                GameController.ResumeGame();
                 gameMenu.startPanel.SetActive(false);
             }
             

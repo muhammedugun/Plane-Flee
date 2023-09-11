@@ -66,18 +66,15 @@ namespace Assets.Scripts.GameManager
             }
         }
 
-        public static void PauseGame(MobileInputController mobileInputController = null)
+        public static void PauseGame()
         {
-            if (mobileInputController != null)
-                mobileInputController.enabled = false;
             planeRigidBody.simulated = false;
             planeManager.enabled = false;
             Time.timeScale = 0f;
         }
 
-        public static void ResumeGame(MobileInputController mobileInputController)
+        public static void ResumeGame()
         {
-            mobileInputController.enabled = true;
             planeRigidBody.simulated = true;
             planeManager.enabled = true;
             Time.timeScale = 1f;
