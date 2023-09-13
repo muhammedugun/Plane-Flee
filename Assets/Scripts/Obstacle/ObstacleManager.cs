@@ -9,4 +9,11 @@ public class ObstacleManager : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void Active()
+    {
+        gameObject.SetActive(true);
+        gameObject.GetComponent<Animator>().SetBool("isDestroy", false);
+        health = 3;
+    }
 }

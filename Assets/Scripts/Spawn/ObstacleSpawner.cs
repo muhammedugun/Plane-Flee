@@ -27,6 +27,8 @@ namespace Assets.Scripts.Spawn
         {
             var spawnPositionX = lastObjectTransform.position.x + objectDistance;
             spawnObject.transform.position = new Vector2(spawnPositionX, lastObjectTransform.position.y);
+
+            spawnObject.GetComponent<ObstacleManager>().Active();
             ObjectTransformRandomization.RandomizeRotation(spawnObject.transform, -7f, 7f);
 
             SpawnService.FixSpawnArrayIndexs(ref spawnObjects);

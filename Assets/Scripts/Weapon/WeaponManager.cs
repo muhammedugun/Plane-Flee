@@ -1,16 +1,20 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class WeaponInstantiate : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class WeaponManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public Transform planeTransform;
     public GameObject rocketPrefab, bulletPrefab;
+    public Image changeWeaponButton;
+    public Sprite bulletSprite, rocketSprite;
     private bool isfirstLaunch=true;
     private GameObject rocket, bullet;
-    Rocket rocketScript;
-    Bullet? bulletScript;
-
+    private Rocket rocketScript;
+    private int weaponNo=0; // 0 = bullet, 1 = rocket
     private bool isButtonPressed = false;
+    
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -22,10 +26,31 @@ public class WeaponInstantiate : MonoBehaviour, IPointerDownHandler, IPointerUpH
         isButtonPressed = false;
     }
 
+    public void ChangeWeapon()
+    {
+        if (weaponNo == 0)
+        {
+            weaponNo = 1;
+            changeWeaponButton.sprite = rocketSprite;
+        }
+        else
+        {
+            weaponNo = 0;
+            changeWeaponButton.sprite = bulletSprite;
+        }
+        
+    }
+
     public void WeaponLauncher()
     {
-
-        LaunchBullet();
+        if(weaponNo==0)
+        {
+            LaunchBullet();
+        }
+        else
+        {
+            LaunchRocket();
+        }
 
     }
 
@@ -52,34 +77,26 @@ public class WeaponInstantiate : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     void LaunchBullet()
     {
-        if(bulletScript == null)
+        if(bulletArray[29]==null && Time.time > Bullet.nextReloadTime)
         {
             bullet = Instantiate(bulletPrefab, position: planeTransform.position, rotation: planeTransform.rotation);
             bulletArray[bulletCount] = bullet;
             bulletCount++;
-            bulletScript = bullet.GetComponent<Bullet>();
+            Bullet.nextReloadTime = Time.time + Bullet.reloadTime;
+            bullet.GetComponent<Bullet>().Continue();
         }
 
-        else if(bulletArray[29]==null && Time.time > bulletScript.nextReloadTime)
-        {
-            bullet = Instantiate(bulletPrefab, position: planeTransform.position, rotation: planeTransform.rotation);
-            bulletArray[bulletCount] = bullet;
-            bulletCount++;
-            bulletScript.nextReloadTime = Time.time + bulletScript.reloadTime;
-            bulletScript.Continue(bullet);
-        }
-
-        else if(bulletArray[29] != null && Time.time > bulletScript.nextReloadTime)
+        else if(bulletArray[29] != null && Time.time > Bullet.nextReloadTime)
         {
             if(bulletCount>=29)
             {
                 bulletCount = 0;
             }
-            
-            bulletScript.nextReloadTime = Time.time + bulletScript.reloadTime;
+
+            Bullet.nextReloadTime = Time.time + Bullet.reloadTime;
 
             bulletArray[bulletCount].transform.SetPositionAndRotation(planeTransform.position, planeTransform.rotation);
-            bulletScript.Continue(bulletArray[bulletCount]);
+            bulletArray[bulletCount].GetComponent<Bullet>().Continue();
             bulletCount++;
         }
     }

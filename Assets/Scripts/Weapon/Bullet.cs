@@ -5,8 +5,8 @@ public class Bullet : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     bool isActive = true;
-    public float reloadTime = 0.2f;
-    public float nextReloadTime;
+    public static float reloadTime = 0.2f;
+    public static float nextReloadTime;
 
 
     void Start()
@@ -51,11 +51,11 @@ public class Bullet : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
-    public void Continue(GameObject bullet)
+    public void Continue()
     {
-        bullet.GetComponent<Animator>().SetBool("isDestroy", false);
+        gameObject.GetComponent<Animator>().SetBool("isDestroy", false);
         isActive = true;
-        Active(bullet);
+        Active();
     }
 
     public void Deactive()
@@ -63,8 +63,8 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Active(GameObject bullet)
+    public void Active()
     {
-        bullet.SetActive(true);
+        gameObject.SetActive(true);
     }
 }
