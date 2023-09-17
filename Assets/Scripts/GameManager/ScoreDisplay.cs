@@ -17,8 +17,11 @@ public class ScoreDisplay : MonoBehaviour
     /// </summary>
     public int score = 0;
 
-
-
+    /// <summary>
+    /// Skor çarpaný aktif mi (2x çarpan)
+    /// </summary>
+    public bool isScoreMultiplierActive;
+    
     private void Start()
     {
         UpdateScoreDisplay();
@@ -30,7 +33,17 @@ public class ScoreDisplay : MonoBehaviour
     /// <param name="value"></param>
     public void UpdateScore()
     {
-        score++;
+        if (isScoreMultiplierActive)
+        {
+            score += 2;
+            
+        }
+            
+        else
+        {
+            score++;
+        }
+            
         UpdateScoreDisplay();
     }
 

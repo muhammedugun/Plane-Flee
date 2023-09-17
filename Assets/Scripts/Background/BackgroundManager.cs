@@ -9,11 +9,11 @@ namespace Assets.Scripts.Background
     public class BackgroundManager : MonoBehaviour
     {
         [SerializeField] PlaneManager planeManager;
-        AbstractBackgroundTransition backgroundTransition;
+        ParallaxTransition backgroundTransition;
 
         private void Awake()
         {
-            backgroundTransition = GetComponent<AbstractBackgroundTransition>();
+            backgroundTransition = GetComponent<ParallaxTransition>();
         }
 
         void Update()

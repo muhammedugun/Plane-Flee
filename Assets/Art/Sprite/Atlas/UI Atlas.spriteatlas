@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 50
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: f63ff06a4ddb9bd45afb46803e772934, type: 3}
+    - {fileID: 102900000, guid: 9cc1eb395c824744eaf1be684e907692, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 9318303067790ee4689da71052765128, type: 3}
+  - {fileID: 21300000, guid: f3c5885075cc9184081648f2e6a882df, type: 3}
+  - {fileID: 21300000, guid: e99f87f15e260bc42b67c6ec82ef5408, type: 3}
+  - {fileID: 21300000, guid: ce466702804c9694c8cddb434b73bb2e, type: 3}
+  - {fileID: 21300000, guid: 2b474ab36d79a9240ac19fcbc9d0f21c, type: 3}
+  - {fileID: 21300000, guid: fe5e2104ebf60b140ac341712f314866, type: 3}
+  - {fileID: 21300000, guid: 1838644414efeaf419322b8da90626ee, type: 3}
+  - {fileID: 21300000, guid: 47a7df54ea4998f4eb3cfe4dbcf64fea, type: 3}
+  - {fileID: 21300000, guid: 73f3f2a4d7e404e4da00277aab6a0a7e, type: 3}
+  - {fileID: 21300000, guid: c4bcd1c4fa93d8a4e88fb862fb278a32, type: 3}
+  - {fileID: 21300000, guid: d84ebee53e7896c418998505db1ffbc9, type: 3}
+  - {fileID: 21300000, guid: 558d5676599ebce46a8870313599849f, type: 3}
+  - {fileID: 21300000, guid: 58427ae6589a549459374733fb21a36e, type: 3}
+  - {fileID: 21300000, guid: d95e446700981344691826612c7bb1c2, type: 3}
+  - {fileID: 21300000, guid: da863fa838ec4684cb60063c0a19326c, type: 3}
+  - {fileID: 21300000, guid: fb6868b8ea5f90647a68b5d8c90f06d0, type: 3}
+  - {fileID: 21300000, guid: 29f1abc9c0a5fac48a04d805a6cdba98, type: 3}
+  - {fileID: 21300000, guid: 09a44e7a85a42d845a5e452556598405, type: 3}
+  - {fileID: 21300000, guid: 457dd54c91a8e3448bc24ba0fb20ba85, type: 3}
+  - {fileID: 21300000, guid: 9ced8b6c58288714788da23b577b64b2, type: 3}
+  - {fileID: 21300000, guid: abf3c7cc5bc04414c8424dace8ee29b3, type: 3}
+  - {fileID: 21300000, guid: 27d9100d3aeab4d4a87cb0fd7750ec35, type: 3}
+  - {fileID: 21300000, guid: f031d66e4eb2f4a459618030106676bf, type: 3}
+  - {fileID: 21300000, guid: b569edaedbb117c40838aee7901222b4, type: 3}
+  - {fileID: 21300000, guid: 4755bc6f0a088e346a673a86a061dd4f, type: 3}
+  - {fileID: 21300000, guid: 8e36c9bfdc7a2de4387dc73e7ba504aa, type: 3}
+  - {fileID: 21300000, guid: 777379df84c2700409a7716203eea623, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - tapRight
+  - 5
+  - 6
+  - soundOn
+  - soundOff
+  - 7
+  - 1
+  - 4
+  - unLocked
+  - arrow_reserve
+  - 9
+  - tapLeft
+  - bullet
+  - 8
+  - 0
+  - musicOn
+  - next
+  - checkmark
+  - tapTick
+  - rocket
+  - 2
+  - musicOff
+  - lock
+  - tap
+  - 3
+  - pause
+  - gameOverText
+  m_RenderDataMap: {}
+  m_Tag: UI Atlas
+  m_IsVariant: 0

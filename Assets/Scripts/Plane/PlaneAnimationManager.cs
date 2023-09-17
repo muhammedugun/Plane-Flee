@@ -51,7 +51,8 @@ namespace Assets.Scripts.Plane.ObserverPattern
         {
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
             GameController.PauseGame();
-            animator.runtimeAnimatorController = bangAnimatorController;
+            //animator.runtimeAnimatorController = bangAnimatorController;
+            animator.SetTrigger("isDestroy");
         }
 
         

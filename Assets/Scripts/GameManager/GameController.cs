@@ -11,7 +11,7 @@ namespace Assets.Scripts.GameManager
 
         [SerializeField] GameObject plane;
         [SerializeField] SpriteRenderer planeSpriteRenderer;
-        [SerializeField] Sprite yellowPlaneSprite, bluePlaneSprite, greenPlaneSprite, redPlaneSprite;
+        //[SerializeField] Sprite yellowPlaneSprite, bluePlaneSprite, greenPlaneSprite, redPlaneSprite;
         static PlaneManager planeManager;
         static Rigidbody2D planeRigidBody;
 
@@ -37,7 +37,7 @@ namespace Assets.Scripts.GameManager
                 else
                 {
                     switch (PlayerPrefs.GetInt("checkMark"))
-                    {
+                    {/*
                         case 0:
                             planeSpriteRenderer.sprite = yellowPlaneSprite; break;
                         case 1:
@@ -47,7 +47,7 @@ namespace Assets.Scripts.GameManager
                         case 3:
                             planeSpriteRenderer.sprite = redPlaneSprite; break;
                         default:
-                            break;
+                            break;*/
                     }
 
                 }
