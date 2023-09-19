@@ -11,6 +11,8 @@ namespace Assets.Scripts.Background
         [SerializeField] PlaneManager planeManager;
         ParallaxTransition backgroundTransition;
 
+        //public float testSpeed;
+
         private void Awake()
         {
             backgroundTransition = GetComponent<ParallaxTransition>();
@@ -19,6 +21,7 @@ namespace Assets.Scripts.Background
         void Update()
         {
             backgroundTransition.AdvanceWithReferanceSpeed(planeManager.planeMovement.horizontalSpeed);
+            //backgroundTransition.AdvanceWithReferanceSpeed(testSpeed);//test
         }
     }
 }

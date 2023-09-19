@@ -1,10 +1,10 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class MovementAbility : MonoBehaviour
+public class PickupMovement : MonoBehaviour
 {
     internal float xpos;
-
+   
     void Start()
     {
         xpos = gameObject.transform.position.x;
@@ -15,8 +15,12 @@ public class MovementAbility : MonoBehaviour
 
     private void LateUpdate()
     {
-        gameObject.transform.position = new Vector2(xpos, gameObject.transform.position.y);
-        xpos -= 0.03f;
+        if(Time.timeScale!=0)
+        {
+            gameObject.transform.position = new Vector2(xpos, gameObject.transform.position.y);
+            xpos -= 0.03f;
+        }
+        
     }
 }
     

@@ -1,14 +1,18 @@
-﻿using Assets.Scripts.Plane.ObserverPattern;
+﻿using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Collection
 {
     public class CollectionManager : MonoBehaviour
     {
-        public TriggerSubject triggerSubject;
-        public ScoreDisplay scoreDisplay;
-        public GameObject scoreMultiplierIcon, shield;
+        /// <summary>
+        /// Bir yetenek ile çarpıştığında
+        /// </summary>
+        public static event Action OnCollectPickup;
+
         private StarCollection starCollection;
+
+
         private void Awake()
         {
             starCollection = GetComponent<StarCollection>();
@@ -21,49 +25,29 @@ namespace Assets.Scripts.Collection
                 starCollection.Collect(collision);
             }
 
-            else if(CheckScoreMultiplier(collision))
+            else if(CheckPickup(collision))
             {
-                scoreDisplay.isScoreMultiplierActive = true;
-                scoreMultiplierIcon.SetActive(true);
+                OnCollectPickup.Invoke();
             }
 
-            else if (CheckShield(collision))
-            {
-                triggerSubject.isShieldActive = true;
-                shield.SetActive(true);
-            }
         }
 
         /// <summary>
-        /// Uçak skor çarpanıyla çarpıştı mı?
+        /// Uçak bir yetenek ile çarpıştı mı?
         /// </summary>
         /// <param name="collider"></param>
         /// <returns></returns>
-        public bool CheckScoreMultiplier(Collider2D collider)
+        public bool CheckPickup(Collider2D collision)
         {
-            if (collider.name == "Score Multiplier Pickup")
+            if(collision.CompareTag("pickup"))
             {
-                collider.gameObject.SetActive(false);
                 return true;
             }
             else
+            {
                 return false;
+            }
         }
 
-        /// <summary>
-        /// Uçak skor çarpanıyla çarpıştı mı?
-        /// </summary>
-        /// <param name="collider"></param>
-        /// <returns></returns>
-        public bool CheckShield(Collider2D collider)
-        {
-            if (collider.name == "Shield Pickup")
-            {
-                collider.gameObject.SetActive(false);
-                return true;
-            }
-            else
-                return false;
-        }
     }
 }

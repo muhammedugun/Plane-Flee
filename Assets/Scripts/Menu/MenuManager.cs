@@ -49,7 +49,7 @@ namespace Assets.Scripts.Menu
                 PlayerPrefs.Save();
             }
             PlayerPrefs.SetInt("currentScore", scoreDisplay.score);
-            UnscaledTimeInvoke.Invoke(ShowGameOverPanel, 0.5f);
+            UnscaledTimeInvoke.Invoke(ShowGameOverPanel, 3f);
         }
 
         void ShowGameOverPanel()

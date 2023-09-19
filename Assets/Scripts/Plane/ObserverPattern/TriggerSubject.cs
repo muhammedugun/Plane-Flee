@@ -6,14 +6,16 @@ namespace Assets.Scripts.Plane.ObserverPattern
     public class TriggerSubject : MonoBehaviour
     {
         public static event Action OnTriggerEnter;
-        public GameObject shield;
-        public bool isShieldActive;
+        public static event Action OnTriggerWithShield; // üzerinde kalkan varken bir engele çarptı
+        public PickupManager pickupManager;
+        [SerializeField] private GameObject shield;
+
         [Obsolete]
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("ground"))
             {
-                if(isShieldActive == false)
+                if(shield.active == false)
                 {
                     if (!PlayerPrefs.HasKey("GameOverCount"))
                     {
@@ -36,15 +38,17 @@ namespace Assets.Scripts.Plane.ObserverPattern
             {
                 if (shield.active == true)
                 {
-                    shield.SetActive(false);
-                    gameObject.GetComponent<Animator>().SetTrigger("isGhost");
+                    OnTriggerWithShield.Invoke();
                 }
+                    
             }
         }
 
         public void DeactiveShield()
         {
-            isShieldActive = false;
+            Debug.Log("DeactiveShield");
+            shield.SetActive(false);
+            pickupManager.InvokeRespawn();
         }
 
     }

@@ -6,7 +6,7 @@ namespace Assets.Scripts.Plane.ObserverPattern
     public class PlaneAnimationManager : MonoBehaviour
     {
         Animator animator;
-        [SerializeField] RuntimeAnimatorController bangAnimatorController;
+        //[SerializeField] RuntimeAnimatorController bangAnimatorController;
 
 
 

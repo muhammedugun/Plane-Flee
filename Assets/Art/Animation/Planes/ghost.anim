@@ -116,7 +116,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -207,7 +207,7 @@ AnimationClip:
   - time: 1.5
     functionName: DeactiveShield
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: 1d30d9d3c1ffb0d46945dddf46ef8887, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

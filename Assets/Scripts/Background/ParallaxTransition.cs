@@ -11,11 +11,25 @@ namespace Assets.Scripts.Background
 
         [Range(0f, 0.2f)]
         public float speed;
-        [SerializeField] Material backgroundMaterial;
+        public Material[] materialArray;
 
         // Arkaplanýn ilerlemiþ olduðu mevcut mesafesi
         float currentDistance;
 
+        [System.Obsolete]
+        private void Start()
+        {
+            RandomMaterial();
+
+        }
+
+        [System.Obsolete]
+        private void RandomMaterial()
+        {
+            int materialCount = materialArray.Length;
+            int randomIndex = Random.RandomRange(0, materialCount + 1);
+            GetComponent<MeshRenderer>().material = materialArray[randomIndex];
+        }
 
         public void AdvanceWithReferanceSpeed(float referanceSpeed)
         {
@@ -26,7 +40,7 @@ namespace Assets.Scripts.Background
         public void Advance(float speed)
         {
             currentDistance += Time.deltaTime * speed;
-            backgroundMaterial.SetTextureOffset("_MainTex", Vector2.right * currentDistance);
+            GetComponent<MeshRenderer>().material.SetTextureOffset("_MainTex", Vector2.right * currentDistance);
         }
         
     }
