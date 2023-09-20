@@ -5,8 +5,8 @@ using UnityEngine;
 public class PickupManager : MonoBehaviour
 {
     public float respawnTime;
-    public ScoreDisplay scoreDisplay;
-    public GameObject plane, scoreMultiplierIcon, shield, pickup;
+    public CoinDisplay coinDisplay;
+    public GameObject plane, coinMultiplierIcon, shield, pickup;
     public int type; // 0=score, 1=shield
     private float startTime;
 
@@ -34,8 +34,8 @@ public class PickupManager : MonoBehaviour
 
         if (startTime!=0f && type==0 && Time.time >= startTime + respawnTime)
         {
-            scoreDisplay.isScoreMultiplierActive = false;
-            scoreMultiplierIcon.SetActive(false);
+            coinDisplay.isScoreMultiplierActive = false;
+            coinMultiplierIcon.SetActive(false);
             startTime = 0;
             Invoke(nameof(Respawn), respawnTime);
         }
@@ -61,8 +61,8 @@ public class PickupManager : MonoBehaviour
         if (type==0)
         {
             startTime = Time.time;
-            scoreMultiplierIcon.SetActive(true);
-            scoreDisplay.isScoreMultiplierActive = true;
+            coinMultiplierIcon.SetActive(true);
+            coinDisplay.isScoreMultiplierActive = true;
         }
         // shield ise
         else if(type==1)

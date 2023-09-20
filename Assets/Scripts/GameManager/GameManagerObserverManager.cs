@@ -6,7 +6,7 @@ namespace Assets.Scripts.GameManager
 {
     public class GameManagerObserverManager : AbstractObserverManager
     {
-        [UnityEngine.SerializeField] ScoreDisplay scoreDisplay;
+        [UnityEngine.SerializeField] CoinDisplay coinDisplay;
         
         private void Start()
         {
@@ -22,12 +22,12 @@ namespace Assets.Scripts.GameManager
         public override void SubscribeToEvents()
         {
             
-            StarCollection.OnCollectStar += scoreDisplay.UpdateScore;
+            StarCollection.OnCollectStar += coinDisplay.UpdateCoin;
         }
 
         public override void UnsubscribeToEvents()
         {
-            StarCollection.OnCollectStar -= scoreDisplay.UpdateScore;
+            StarCollection.OnCollectStar -= coinDisplay.UpdateCoin;
         }
 
         

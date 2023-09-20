@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Ads;
-using Assets.Scripts.Plane;
-using System.Collections;
+﻿using Assets.Scripts.Plane;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,10 +32,11 @@ namespace Assets.Scripts.GameManager
                 {
                     PlayerPrefs.SetInt("checkMark", 0);
                 }
+                /*
                 else
                 {
                     switch (PlayerPrefs.GetInt("checkMark"))
-                    {/*
+                    {
                         case 0:
                             planeSpriteRenderer.sprite = yellowPlaneSprite; break;
                         case 1:
@@ -47,10 +46,10 @@ namespace Assets.Scripts.GameManager
                         case 3:
                             planeSpriteRenderer.sprite = redPlaneSprite; break;
                         default:
-                            break;*/
+                            break;
                     }
 
-                }
+                }*/
                 sceneName = "GameOver";
                 LoadSceneAsync();
             }

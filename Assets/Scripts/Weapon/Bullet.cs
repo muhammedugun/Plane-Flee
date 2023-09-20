@@ -1,70 +1,73 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace Assets.Scripts.Weapon
 {
-    public float speed;
-    private Rigidbody2D rb;
-    bool isActive = true;
-    public static float reloadTime = 0.2f;
-    public static float nextReloadTime;
-
-
-    void Start()
+    public class Bullet : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
+        public float speed;
+        public static float reloadTime = 0.2f;
+
+        private bool isActive = true;
+        private Rigidbody2D rb;
 
 
-    void Update()
-    {
-        if (isActive)
+        void Start()
         {
-            rb.velocity = transform.TransformDirection(new Vector2(speed, 0));
+            rb = GetComponent<Rigidbody2D>();
         }
 
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("obstacle"))
+        void Update()
         {
-            collision.GetComponent<ObstacleManager>().health--;
-            if(collision.GetComponent<ObstacleManager>().health<=0)
+            if (isActive)
             {
-                var collAnimator = collision.gameObject.GetComponent<Animator>();
-                collAnimator.SetBool("isDestroy", true);
+                rb.velocity = transform.TransformDirection(new Vector2(speed, 0));
             }
-            Stop();
 
         }
-        else if (collision.gameObject.CompareTag("ground"))
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            Stop();
+            if (collision.gameObject.CompareTag("obstacle"))
+            {
+                collision.GetComponent<ObstacleManager>().health--;
+                if (collision.GetComponent<ObstacleManager>().health <= 0)
+                {
+                    var collAnimator = collision.gameObject.GetComponent<Animator>();
+                    collAnimator.SetBool("isDestroy", true);
+                }
+                Stop();
+
+            }
+            else if (collision.gameObject.CompareTag("ground"))
+            {
+                Stop();
+            }
         }
-    }
 
 
-    public void Stop()
-    {
-        gameObject.GetComponent<Animator>().SetBool("isDestroy", true);
-        isActive = false;
-        rb.velocity = Vector2.zero;
-    }
+        public void Stop()
+        {
+            gameObject.GetComponent<Animator>().SetBool("isDestroy", true);
+            isActive = false;
+            rb.velocity = Vector2.zero;
+        }
 
-    public void Continue()
-    {
-        gameObject.GetComponent<Animator>().SetBool("isDestroy", false);
-        isActive = true;
-        Active();
-    }
+        public void Continue()
+        {
+            gameObject.GetComponent<Animator>().SetBool("isDestroy", false);
+            isActive = true;
+            Active();
+        }
 
-    public void Deactive()
-    {
-        gameObject.SetActive(false);
-    }
+        public void Deactive()
+        {
+            gameObject.SetActive(false);
+        }
 
-    public void Active()
-    {
-        gameObject.SetActive(true);
+        public void Active()
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

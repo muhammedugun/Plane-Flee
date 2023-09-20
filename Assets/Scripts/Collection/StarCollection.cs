@@ -8,7 +8,7 @@ namespace Assets.Scripts.Collection
         
         public static event Action OnCollectStar;
 
-        public ScoreDisplay scoreDisplay;
+        public CoinDisplay scoreDisplay;
         public bool Check(Collider2D collision)
         {
             if (collision.CompareTag("star"))

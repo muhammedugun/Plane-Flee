@@ -27,7 +27,7 @@ namespace Assets.Scripts.Background
         private void RandomMaterial()
         {
             int materialCount = materialArray.Length;
-            int randomIndex = Random.RandomRange(0, materialCount + 1);
+            int randomIndex = Random.RandomRange(0, materialCount);
             GetComponent<MeshRenderer>().material = materialArray[randomIndex];
         }
 
