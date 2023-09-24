@@ -5,18 +5,18 @@ public class ScoreDisplay : MonoBehaviour
 {
     internal int currentScore;
     internal int bestScore;
-    [SerializeField] private TextMeshProUGUI currentScoreText, bestScoreText;
-    [SerializeField] Transform planeTransform;
+    [SerializeField] private TextMeshProUGUI _currentScoreText, _bestScoreText;
+    [SerializeField] private Transform _planeTransform;
 
     private void Start()
     {
         bestScore = PlayerPrefs.GetInt("bestScore");
-        bestScoreText.text = bestScore.ToString() + "m";
+        _bestScoreText.text = "Best Score: " + bestScore.ToString() + "m";
     }
 
     private void LateUpdate()
     {
-        currentScore = (int)planeTransform.position.x + 5;
-        currentScoreText.text = currentScore.ToString() + "m";
+        currentScore = (int)_planeTransform.position.x + 5;
+        _currentScoreText.text = currentScore.ToString() + "m";
     }
 }

@@ -7,12 +7,13 @@ namespace Assets.Scripts.Menu
 {
     public class MenuManager : MonoBehaviour
     {
+        
+        public GameController gameController;
+        [SerializeField] GameObject gameOverPanel;
         [SerializeField] ScoreDisplay scoreDisplay;
         [SerializeField] GameMenu gameMenu;
-        public GameController gameController;
 
-        
-        
+
 
         private void Start()
         {
@@ -54,8 +55,8 @@ namespace Assets.Scripts.Menu
 
         void ShowGameOverPanel()
         {
-            gameController.asyncLoad.allowSceneActivation = true;
-            SceneManager.LoadScene("GameOver");
+            gameOverPanel.SetActive(true);
+
         }
 
   

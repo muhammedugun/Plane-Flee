@@ -6,14 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 9c8201cb3fd50ca4e89b55b712ae148c
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 136ec3b56a7383445b69b1055f35dafa
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 5ab92ce9bfd26f846bf41efb0a11681e
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 93e659fe7c7c1a54f86b39c1f52e7813, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 54905070976eb554fbb93e38e5edc357, type: 2}

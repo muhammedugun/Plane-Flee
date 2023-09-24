@@ -64,4 +64,9 @@ public class Rocket : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void DisableExplosionSprite()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+
 }

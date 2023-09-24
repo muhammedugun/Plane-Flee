@@ -36,7 +36,7 @@ namespace Assets.Scripts.Plane.ObserverPattern
         {
             if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("ground"))
             {
-                if (shield.active == true)
+                if (shield.active == true && shield.GetComponent<SpriteRenderer>().enabled)
                 {
                     OnTriggerWithShield.Invoke();
                 }
@@ -46,7 +46,7 @@ namespace Assets.Scripts.Plane.ObserverPattern
 
         public void DeactiveShield()
         {
-            Debug.Log("DeactiveShield");
+
             shield.SetActive(false);
             pickupManager.InvokeRespawn();
         }

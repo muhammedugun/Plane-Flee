@@ -69,5 +69,10 @@ namespace Assets.Scripts.Weapon
         {
             gameObject.SetActive(true);
         }
+
+        public void DisableExplosionSprite()
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 }

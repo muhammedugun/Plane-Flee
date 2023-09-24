@@ -18,11 +18,11 @@ namespace Assets.Scripts.GameDifficulty
 
         public void SetDifficulty()
         {
-            if(Time.time>=nextDifficultyTime && obstacleSpawner.minDistance > 0f)
+            if(Time.time>=nextDifficultyTime && obstacleSpawner.minDistance > 4f)
             {
                 obstacleSpawner.minDistance -= 0.2f;
                 obstacleSpawner.maxDistance -= 0.2f;
-                if (obstacleSpawner.minDistance <= 2f && !isSetHeight)
+                if (obstacleSpawner.minDistance <= 6f && !isSetHeight)
                 {
                     obstacleSpawner.topMinHeight += 1f;
                     obstacleSpawner.topMaxHeight += 1f;

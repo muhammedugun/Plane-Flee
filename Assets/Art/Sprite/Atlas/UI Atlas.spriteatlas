@@ -68,7 +68,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f031d66e4eb2f4a459618030106676bf, type: 3}
   - {fileID: 21300000, guid: b569edaedbb117c40838aee7901222b4, type: 3}
   - {fileID: 21300000, guid: 8e36c9bfdc7a2de4387dc73e7ba504aa, type: 3}
-  - {fileID: 21300000, guid: 777379df84c2700409a7716203eea623, type: 3}
   m_PackedSpriteNamesToIndex:
   - tapRight
   - soundOn
@@ -88,7 +87,6 @@ SpriteAtlas:
   - lock
   - tap
   - pause
-  - gameOverText
   m_RenderDataMap: {}
   m_Tag: UI Atlas
   m_IsVariant: 0

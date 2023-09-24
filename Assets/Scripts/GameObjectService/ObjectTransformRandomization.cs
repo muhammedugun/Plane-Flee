@@ -21,7 +21,6 @@ namespace Assets.Scripts.GameObjectService
         {
             float randomY = Random.Range(minHeight, maxHeight);
             SetHeight(gameObjectTransform, randomY);
-            //gameObjectTransform.position = new Vector3(gameObjectTransform.position.x, randomY, gameObjectTransform.position.z);
         }
 
 

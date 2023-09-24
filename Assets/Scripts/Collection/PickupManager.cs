@@ -14,7 +14,7 @@ public class PickupManager : MonoBehaviour
     private void Start()
     {        
         type = Random.RandomRange(0, 2);
-        Debug.Log("randomrange" + type);
+
 
         CollectionManager.OnCollectPickup += PickupController;
         TriggerSubject.OnTriggerWithShield += DeactiveShieldSprite;
@@ -46,10 +46,9 @@ public class PickupManager : MonoBehaviour
     {
 
         type = Random.RandomRange(0, 2);
-        Debug.Log("randomrange" + type);
 
         pickup.SetActive(true);
-        pickup.GetComponent<PickupMovement>().xpos = plane.transform.position.x + 10f;
+        pickup.GetComponent<PickupMovement>().xpos = plane.transform.position.x + 100f;
        
 
     }
@@ -68,6 +67,7 @@ public class PickupManager : MonoBehaviour
         else if(type==1)
         {
             shield.SetActive(true);
+            shield.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 

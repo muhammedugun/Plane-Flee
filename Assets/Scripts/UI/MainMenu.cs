@@ -58,17 +58,6 @@ namespace Assets.Scripts.Menu
         }
         public static bool isEventRegistered = false;
 
-        public void PlayButton()
-        {
-            LoadPlayGame();
-        }
-
-
-        public void LoadPlayGame()
-        {
-            gameController.PlayGame();
-
-        }
 
         public void SkinsButton()
         {

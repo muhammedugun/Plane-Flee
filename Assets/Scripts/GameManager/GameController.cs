@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Plane;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,12 +10,15 @@ namespace Assets.Scripts.GameManager
 
         [SerializeField] GameObject plane;
         [SerializeField] SpriteRenderer planeSpriteRenderer;
-        //[SerializeField] Sprite yellowPlaneSprite, bluePlaneSprite, greenPlaneSprite, redPlaneSprite;
+
         static PlaneManager planeManager;
         static Rigidbody2D planeRigidBody;
 
         private void Awake()
         {
+            Application.targetFrameRate = 60;
+            QualitySettings.vSyncCount = 0;
+
             if (SceneManager.GetActiveScene().name == "Game")
             {
                 planeManager = plane.GetComponent<PlaneManager>();
@@ -22,47 +26,6 @@ namespace Assets.Scripts.GameManager
             }
 
 
-        }
-        private void Start()
-        {
-            if (SceneManager.GetActiveScene().name == "Game")
-            {
-                //Uçak skini ile ilgili işlemler
-                if (!PlayerPrefs.HasKey("checkMark"))
-                {
-                    PlayerPrefs.SetInt("checkMark", 0);
-                }
-                /*
-                else
-                {
-                    switch (PlayerPrefs.GetInt("checkMark"))
-                    {
-                        case 0:
-                            planeSpriteRenderer.sprite = yellowPlaneSprite; break;
-                        case 1:
-                            planeSpriteRenderer.sprite = bluePlaneSprite; break;
-                        case 2:
-                            planeSpriteRenderer.sprite = greenPlaneSprite; break;
-                        case 3:
-                            planeSpriteRenderer.sprite = redPlaneSprite; break;
-                        default:
-                            break;
-                    }
-
-                }*/
-                sceneName = "GameOver";
-                LoadSceneAsync();
-            }
-            else if (SceneManager.GetActiveScene().name == "MainMenu")
-            {
-                sceneName = "Game";
-                LoadSceneAsync();
-            }
-            else if (SceneManager.GetActiveScene().name == "GameOver")
-            {
-                sceneName = "Game";
-                LoadSceneAsync();
-            }
         }
 
         public static void PauseGame()
@@ -83,15 +46,12 @@ namespace Assets.Scripts.GameManager
         public AsyncOperation asyncLoad;
 
 
-        public void PlayGame()
-        {
-            asyncLoad.allowSceneActivation = true;
-           
-        }
+
+
 
         public static void RestartGame()
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         public static void QuitGame()
@@ -99,10 +59,6 @@ namespace Assets.Scripts.GameManager
             Application.Quit();
         }
 
-        private void LoadSceneAsync()
-        {
-            asyncLoad = SceneManager.LoadSceneAsync(sceneName);
-            asyncLoad.allowSceneActivation = false;
-        }
+
     }
 }
