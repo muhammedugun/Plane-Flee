@@ -60,6 +60,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: fb6868b8ea5f90647a68b5d8c90f06d0, type: 3}
   - {fileID: 21300000, guid: 29f1abc9c0a5fac48a04d805a6cdba98, type: 3}
   - {fileID: 21300000, guid: f3e5087a13e559d498dc2d1711126891, type: 3}
+  - {fileID: 21300000, guid: 39a42e7a7981edd4cbef460292aa3c46, type: 3}
   - {fileID: 21300000, guid: 09a44e7a85a42d845a5e452556598405, type: 3}
   - {fileID: 21300000, guid: 457dd54c91a8e3448bc24ba0fb20ba85, type: 3}
   - {fileID: 21300000, guid: 9ced8b6c58288714788da23b577b64b2, type: 3}
@@ -79,6 +80,7 @@ SpriteAtlas:
   - musicOn
   - next
   - x
+  - plus
   - checkmark
   - tapTick
   - rocket
