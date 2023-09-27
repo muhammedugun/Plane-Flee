@@ -25,7 +25,7 @@ namespace Assets.Scripts.Plane.ObserverPattern
                     {
                         PlayerPrefs.SetInt("GameOverCount", PlayerPrefs.GetInt("GameOverCount") + 1);
                     }
-
+                    Debug.Log(collision.gameObject.name);
                     OnTriggerEnter.Invoke();
                 }
             }

@@ -8,7 +8,7 @@ namespace Assets.Scripts.Menu
     public class MenuManager : MonoBehaviour
     {
         
-        public GameController gameController;
+        [SerializeField] private GameController _gameController;
         [SerializeField] GameObject gameOverPanel;
         [SerializeField] ScoreDisplay scoreDisplay;
         [SerializeField] GameMenu gameMenu;
@@ -17,18 +17,7 @@ namespace Assets.Scripts.Menu
 
         private void Start()
         {
-            GameController.PauseGame();
             TriggerSubject.OnTriggerEnter += ShowGameOverPanelInvoke;
-        }
-
-        private void Update()
-        {
-            if (Time.timeScale == 0f && Input.touchCount > 0 && !gameMenu.isPausePanelActive)
-            {
-                GameController.ResumeGame();
-                gameMenu.startPanel.SetActive(false);
-            }
-            
         }
 
         private void OnDisable()

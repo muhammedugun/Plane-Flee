@@ -1,5 +1,5 @@
-﻿using Assets.Scripts.Plane;
-using DG.Tweening;
+﻿using Assets.Scripts.Camera;
+using Assets.Scripts.Plane;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,46 +7,54 @@ namespace Assets.Scripts.GameManager
 {
     public class GameController : MonoBehaviour
     {
-
-        [SerializeField] GameObject plane;
-        [SerializeField] SpriteRenderer planeSpriteRenderer;
-
-        static PlaneManager planeManager;
-        static Rigidbody2D planeRigidBody;
+        [SerializeField] private GameObject _camera;
+        [SerializeField] private GameObject _startZone;
+        [SerializeField] private GameObject _mainPanel;
+        [SerializeField] private GameObject _dynamicCanvas2;
+        [SerializeField] private SpriteRenderer _planeSpriteRenderer;
+        [SerializeField] private CameraManager _cameraManager;
+        [SerializeField] private PlaneManager _planeManager;
+        [SerializeField] private Rigidbody2D _planeRigidBody;
 
         private void Awake()
         {
             Application.targetFrameRate = 60;
             QualitySettings.vSyncCount = 0;
-
-            if (SceneManager.GetActiveScene().name == "Game")
-            {
-                planeManager = plane.GetComponent<PlaneManager>();
-                planeRigidBody = plane.GetComponent<Rigidbody2D>();
-            }
-
-
         }
 
-        public static void PauseGame()
+        private void Start()
         {
-            planeRigidBody.simulated = false;
-            planeManager.enabled = false;
+            PauseGame();
+        }
+
+        public void PauseGame()
+        {
+            _planeRigidBody.simulated = false;
+            _planeManager.enabled = false;
+            _cameraManager.enabled = false;
+            _dynamicCanvas2.SetActive(false);
             Time.timeScale = 0f;
         }
 
-        public static void ResumeGame()
+        public void StartGame()
         {
-            planeRigidBody.simulated = true;
-            planeManager.enabled = true;
+            if (_startZone.activeSelf) { _startZone.SetActive(false); }
+            if (_mainPanel.activeSelf) { _mainPanel.SetActive(false); }
+            _cameraManager.enabled = true;
+            _dynamicCanvas2.SetActive(true);
             Time.timeScale = 1f;
         }
 
-        public string sceneName; // Yüklemek istediğiniz sahnenin adı,
-        public AsyncOperation asyncLoad;
 
-
-
+        public void ResumeGame()
+        {
+            if (_mainPanel.activeSelf) { _mainPanel.SetActive(false); }
+            _planeRigidBody.simulated = true;
+            _planeManager.enabled = true;
+            _cameraManager.enabled = true;
+            _dynamicCanvas2.SetActive(true);
+            Time.timeScale = 1f;
+        }
 
 
         public static void RestartGame()
@@ -58,7 +66,6 @@ namespace Assets.Scripts.GameManager
         {
             Application.Quit();
         }
-
 
     }
 }

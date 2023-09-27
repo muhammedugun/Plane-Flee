@@ -7,14 +7,12 @@ namespace Assets.Scripts.Plane
     /// </summary>
     public class PlaneManager : MonoBehaviour
     {
-        public PlaneMovement planeMovement;
+        internal PlaneMovement planeMovement;
 
 
-       
         private void Awake()
         {
             planeMovement = GetComponent<PlaneMovement>();
-
         }
       
         private void FixedUpdate()

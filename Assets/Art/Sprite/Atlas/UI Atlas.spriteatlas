@@ -69,12 +69,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b569edaedbb117c40838aee7901222b4, type: 3}
   - {fileID: 21300000, guid: 8e36c9bfdc7a2de4387dc73e7ba504aa, type: 3}
   m_PackedSpriteNamesToIndex:
-  - tapRight
+  - leftTap
   - soundOn
   - soundOff
   - unLocked
   - arrow_reserve
-  - tapLeft
+  - rightTap
   - bullet
   - musicOn
   - next

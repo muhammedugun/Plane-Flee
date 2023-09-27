@@ -1,10 +1,14 @@
 ﻿using Assets.Scripts.GameManager;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Assets.Scripts.Plane.ObserverPattern
 {
     public class PlaneAnimationManager : MonoBehaviour
     {
+        [SerializeField] private GameController _gameController;
+        [SerializeField] private AnimatorController _planeAnimControlller;
+
         Animator animator;
 
         private void Awake()
@@ -24,13 +28,19 @@ namespace Assets.Scripts.Plane.ObserverPattern
         void SetAnimController()
         {
             animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-            GameController.PauseGame();
+            _gameController.PauseGame();
             animator.SetTrigger("isDestroy");
         }
 
         public void DisableExplosionSprite()
         {
             GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        public void ChangeAnimController()
+        {
+            animator.runtimeAnimatorController = _planeAnimControlller;
+            _gameController.ResumeGame();
         }
 
     }

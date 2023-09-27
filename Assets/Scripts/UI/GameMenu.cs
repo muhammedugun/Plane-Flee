@@ -9,14 +9,17 @@ namespace Assets.Scripts.Menu
     {
 
         
-        [SerializeField] internal GameObject pausePanel;
+        public GameObject pausePanel;
+        public GameObject mainPanel;
+        public GameObject startPanel;
+
         internal bool isPausePanelActive = false;
-        [SerializeField] internal GameObject startPanel;
-        [SerializeField] GameController gameController;
+
+        [SerializeField] private GameController _gameController;
         public void PauseButton()
         {
             isPausePanelActive = true;
-            GameController.PauseGame();
+            _gameController.PauseGame();
             pausePanel.SetActive(true);
         }
 

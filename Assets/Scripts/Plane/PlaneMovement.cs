@@ -34,6 +34,7 @@ namespace Assets.Scripts.Plane
         /// </summary>
         public void MoveHorizontal()
         {
+
             planeRB.velocity = new Vector2(horizontalSpeed, planeRB.velocity.y);
             
         }

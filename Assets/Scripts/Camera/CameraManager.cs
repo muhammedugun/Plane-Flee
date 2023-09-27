@@ -15,6 +15,7 @@ namespace Assets.Scripts.Camera
         }
         private void LateUpdate()
         {
+            
             cameraTracking.FollowHorizontal(cameraObject);
         }
     }

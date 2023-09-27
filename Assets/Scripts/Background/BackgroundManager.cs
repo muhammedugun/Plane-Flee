@@ -21,7 +21,6 @@ namespace Assets.Scripts.Background
         void Update()
         {
             backgroundTransition.AdvanceWithReferanceSpeed(planeManager.planeMovement.horizontalSpeed);
-            //backgroundTransition.AdvanceWithReferanceSpeed(testSpeed);//test
         }
     }
 }
