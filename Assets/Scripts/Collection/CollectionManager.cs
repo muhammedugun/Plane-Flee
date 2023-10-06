@@ -10,12 +10,12 @@ namespace Assets.Scripts.Collection
         /// </summary>
         public static event Action OnCollectPickup;
 
-        private StarCollection starCollection;
+        private CoinCollection starCollection;
 
 
         private void Awake()
         {
-            starCollection = GetComponent<StarCollection>();
+            starCollection = GetComponent<CoinCollection>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

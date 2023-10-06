@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Spawn
 {
-    public class StarSpawner : AbstractSpawner
+    public class CoinSpawner : AbstractSpawner
     {
         public ObstacleSpawner obstacleSpawner;
 
@@ -11,6 +11,7 @@ namespace Assets.Scripts.Spawn
         {
             spawnObject.SetActive(true);
             spawnObject.transform.position = SetRandomPosition(obstacle);
+            // Spawn dizisindeki objelerin indexlerini düzenler. Not: 1 spawn yapıldıktan sonra çağırılmalı
             SpawnService.FixSpawnArrayIndexs(ref spawnObjects);
 
         }
@@ -38,16 +39,19 @@ namespace Assets.Scripts.Spawn
         
         }
 
+        // Gönderilen engelin konumuna göre random bir Vector2 pozisyonu döndürür
         Vector2 SetRandomPosition(Transform obstacle)
         {
             var obstacleCollider = obstacle.GetComponent<PolygonCollider2D>();
             float startPointY, xPos, yPos;
           
+            // engel aşağıdaysa, engele göre random bir y pozisyonu belirle
             if (obstacleCollider.transform.position.y < 0)
             {
                 startPointY = obstacleCollider.transform.position.y + (obstacleCollider.bounds.extents.y*2f) + 1f;
                 yPos = Random.Range(startPointY, startPointY + 1.7f);
             }
+            // engel yukarıdaysa, engele göre random bir y pozisyonu belirle
             else
             {
                 startPointY = obstacleCollider.transform.position.y - obstacleCollider.bounds.size.y - 1f;

@@ -25,14 +25,14 @@ namespace Assets.Scripts.Sound
         public override void SubscribeToEvents()
         {
             MainMenu.OnSoundEffectButton += soundEffectController.VolumeControl;
-            StarCollection.OnCollectStar += collectEffect.Play;
+            CoinCollection.OnCollectStar += collectEffect.Play;
             PlaneMovement.OnFly += PlaneSound.Fly;
         }
 
         public override void UnsubscribeToEvents()
         {
             MainMenu.OnSoundEffectButton -= soundEffectController.VolumeControl;
-            StarCollection.OnCollectStar -= collectEffect.Play;
+            CoinCollection.OnCollectStar -= collectEffect.Play;
             PlaneMovement.OnFly -= PlaneSound.Fly;
         }
 

@@ -11,6 +11,7 @@ namespace Assets.Scripts.Skin
 
         void Start()
         {
+            /*
             if(!PlayerPrefs.HasKey("checkMark"))
             {
                 PlayerPrefs.SetInt("checkMark", 0);
@@ -39,7 +40,7 @@ namespace Assets.Scripts.Skin
 
             LockTextControl("blueLockText", blueLockText, blueTopLockText);
             LockTextControl("greenLockText", greenLockText, greenTopLockText);
-            LockTextControl("redLockText", redLockText, redTopLockText);
+            LockTextControl("redLockText", redLockText, redTopLockText);*/
         }
 
         void LockTextPointControl(string key,GameObject lockText, int unlockScore)

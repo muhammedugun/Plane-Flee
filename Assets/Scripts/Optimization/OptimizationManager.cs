@@ -4,10 +4,10 @@ namespace Assets.Scripts.Optimization
 {
     public class OptimizationManager : MonoBehaviour
     {
-        AbstractFPSTuner fPSTuner;
+        MobileFPSTuner fPSTuner;
         private void Awake()
         {
-            fPSTuner = GetComponent<AbstractFPSTuner>();
+            fPSTuner = GetComponent<MobileFPSTuner>();
             fPSTuner.SetToMaximumFPS();
         }
     }

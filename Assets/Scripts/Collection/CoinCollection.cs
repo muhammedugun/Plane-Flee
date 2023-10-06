@@ -3,22 +3,17 @@ using UnityEngine;
 
 namespace Assets.Scripts.Collection
 {
-    public class StarCollection : MonoBehaviour
+    public class CoinCollection : MonoBehaviour
     {
-        
         public static event Action OnCollectStar;
 
         public CoinDisplay scoreDisplay;
         public bool Check(Collider2D collision)
         {
-            if (collision.CompareTag("star"))
-            {
+            if (collision.CompareTag("coin"))
                 return true;
-            }
-            else
-            {
+            else 
                 return false;
-            }
         }
 
         public void Collect(Collider2D collision)
@@ -27,7 +22,5 @@ namespace Assets.Scripts.Collection
             animator.SetTrigger("collect");
             OnCollectStar.Invoke();
         }
-
-        
     }
 }

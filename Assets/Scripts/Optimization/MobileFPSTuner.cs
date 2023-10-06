@@ -5,12 +5,12 @@ namespace Assets.Scripts.Optimization
     /// <summary>
     /// Mobil platform için fps'yi yönetmekle ilgili görevleri üstlenir
     /// </summary>
-    public class MobileFPSTuner : AbstractFPSTuner
+    public class MobileFPSTuner : MonoBehaviour
     {
         /// <summary>
         /// Mobil platform'da maximum FPS için FPS'yi ekran yenileme oranına ayarlar
         /// </summary>
-        public override void SetToMaximumFPS()
+        public void SetToMaximumFPS()
         {
             Application.targetFrameRate = Screen.currentResolution.refreshRate;
         }

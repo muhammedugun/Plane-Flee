@@ -32,30 +32,37 @@ namespace Assets.Scripts.Weapon
 
         public void ChangeWeapon()
         {
-            if (weaponNo == 0)
+            switch (weaponNo)
             {
-                weaponNo = 1;
-                changeWeaponButton.sprite = rocketSprite;
-            }
-            else
-            {
-                weaponNo = 0;
-                changeWeaponButton.sprite = bulletSprite;
-            }
+                case 0:
+                    weaponNo = 1;
+                    changeWeaponButton.sprite = rocketSprite;
+                    break;
 
+                case 1:
+                    weaponNo = 0;
+                    changeWeaponButton.sprite = bulletSprite;
+                    break;
+
+                default:
+                    break;
+            }
         }
-
         public void WeaponLauncher()
         {
-            if (weaponNo == 0)
+            switch (weaponNo)
             {
-                LaunchBullet();
-            }
-            else
-            {
-                LaunchRocket();
-            }
+                case 0:
+                    LaunchBullet();
+                    break;
 
+                case 1:
+                    LaunchRocket();
+                    break;
+
+                default:
+                    break;
+            }
         }
 
 

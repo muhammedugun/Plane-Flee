@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.GameManager;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Assets.Scripts.Plane.ObserverPattern
@@ -7,7 +6,7 @@ namespace Assets.Scripts.Plane.ObserverPattern
     public class PlaneAnimationManager : MonoBehaviour
     {
         [SerializeField] private GameController _gameController;
-        [SerializeField] private AnimatorController _planeAnimControlller;
+        [SerializeField] private RuntimeAnimatorController _planeAnimControlller;
 
         Animator animator;
 

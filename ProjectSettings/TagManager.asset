@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - star
   - obstacle
   - ground
   - pickup
+  - coin
   layers:
   - Default
   - TransparentFX

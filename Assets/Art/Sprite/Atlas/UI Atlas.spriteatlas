@@ -51,13 +51,16 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 9318303067790ee4689da71052765128, type: 3}
+  - {fileID: 21300000, guid: 374d7680ddb965d45928f878741eda84, type: 3}
   - {fileID: 21300000, guid: ce466702804c9694c8cddb434b73bb2e, type: 3}
   - {fileID: 21300000, guid: 2b474ab36d79a9240ac19fcbc9d0f21c, type: 3}
   - {fileID: 21300000, guid: 73f3f2a4d7e404e4da00277aab6a0a7e, type: 3}
   - {fileID: 21300000, guid: c4bcd1c4fa93d8a4e88fb862fb278a32, type: 3}
   - {fileID: 21300000, guid: 558d5676599ebce46a8870313599849f, type: 3}
   - {fileID: 21300000, guid: 58427ae6589a549459374733fb21a36e, type: 3}
+  - {fileID: 21300000, guid: 44374f87101744b46a5fda0a65d33017, type: 3}
   - {fileID: 21300000, guid: fb6868b8ea5f90647a68b5d8c90f06d0, type: 3}
+  - {fileID: 21300000, guid: 7a380c696e523384c947532147aab463, type: 3}
   - {fileID: 21300000, guid: 29f1abc9c0a5fac48a04d805a6cdba98, type: 3}
   - {fileID: 21300000, guid: f3e5087a13e559d498dc2d1711126891, type: 3}
   - {fileID: 21300000, guid: 39a42e7a7981edd4cbef460292aa3c46, type: 3}
@@ -68,16 +71,21 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 27d9100d3aeab4d4a87cb0fd7750ec35, type: 3}
   - {fileID: 21300000, guid: f031d66e4eb2f4a459618030106676bf, type: 3}
   - {fileID: 21300000, guid: b569edaedbb117c40838aee7901222b4, type: 3}
+  - {fileID: 21300000, guid: 6018121fff4d02a42888e11aa74525ca, type: 3}
   - {fileID: 21300000, guid: 8e36c9bfdc7a2de4387dc73e7ba504aa, type: 3}
+  - {fileID: 21300000, guid: 374d82ff39b26824da2ab4dd3ae669e9, type: 3}
   m_PackedSpriteNamesToIndex:
   - leftTap
+  - main_panel_premade
   - soundOn
   - soundOff
   - unLocked
   - arrow_reserve
   - rightTap
   - bullet
+  - button_right_edge
   - musicOn
+  - button_center
   - next
   - x
   - plus
@@ -88,7 +96,9 @@ SpriteAtlas:
   - musicOff
   - lock
   - tap
+  - circle
   - pause
+  - button_left_edge
   m_RenderDataMap: {}
   m_Tag: UI Atlas
   m_IsVariant: 0

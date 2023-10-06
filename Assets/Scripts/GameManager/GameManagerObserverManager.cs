@@ -22,12 +22,12 @@ namespace Assets.Scripts.GameManager
         public override void SubscribeToEvents()
         {
             
-            StarCollection.OnCollectStar += coinDisplay.UpdateCoin;
+            CoinCollection.OnCollectStar += coinDisplay.UpdateCoin;
         }
 
         public override void UnsubscribeToEvents()
         {
-            StarCollection.OnCollectStar -= coinDisplay.UpdateCoin;
+            CoinCollection.OnCollectStar -= coinDisplay.UpdateCoin;
         }
 
         

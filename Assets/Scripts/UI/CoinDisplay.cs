@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CoinDisplay : MonoBehaviour
 {
-
     /// <summary>
     /// altýn deðerini tutan deðiþken
     /// </summary>
@@ -16,27 +15,16 @@ public class CoinDisplay : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI coinText;
     
-    private void Start()
-    {
-        UpdateCoinDisplay();
-    }
-
     /// <summary>
     /// Coin deðerini güncelleyen fonksiyon
     /// </summary>
     public void UpdateCoin()
     {
         if (isScoreMultiplierActive)
-        {
             coin += 2;
-            
-        }
-            
         else
-        {
             coin++;
-        }
-            
+
         UpdateCoinDisplay();
     }
 
@@ -45,17 +33,7 @@ public class CoinDisplay : MonoBehaviour
     /// </summary>
     private void UpdateCoinDisplay()
     {
-        string coinString = coin.ToString();
-
-        if (coinString.Length==1)
-        {
-            coinString = "00" + coinString;
-        }
-        else if(coinString.Length == 2)
-        {
-            coinString = "0" + coinString;
-        }
-
+        string coinString = coin.ToString().PadLeft(3,'0');
         coinText.text = coinString;
     }
 }

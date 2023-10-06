@@ -16,7 +16,7 @@ namespace Assets.Scripts.Spawn.ObserverPattern
         {
             groundSpawner = GetComponent<GroundSpawner>();
             obstacleSpawner = GetComponent<ObstacleSpawner>();
-            starSpawner = GetComponent<StarSpawner>();
+            starSpawner = GetComponent<CoinSpawner>();
         }
 
         private void OnEnable()
