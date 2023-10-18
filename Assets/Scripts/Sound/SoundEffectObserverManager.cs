@@ -26,6 +26,7 @@ namespace Assets.Scripts.Sound
         {
             MainMenu.OnSoundEffectButton += soundEffectController.VolumeControl;
             CoinCollection.OnCollectStar += collectEffect.Play;
+            CollectionManager.OnCollectPickup += collectEffect.Play;
             PlaneMovement.OnFly += PlaneSound.Fly;
         }
 
@@ -33,6 +34,7 @@ namespace Assets.Scripts.Sound
         {
             MainMenu.OnSoundEffectButton -= soundEffectController.VolumeControl;
             CoinCollection.OnCollectStar -= collectEffect.Play;
+            CollectionManager.OnCollectPickup -= collectEffect.Play;
             PlaneMovement.OnFly -= PlaneSound.Fly;
         }
 

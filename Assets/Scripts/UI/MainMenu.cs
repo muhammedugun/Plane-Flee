@@ -9,9 +9,9 @@ namespace Assets.Scripts.Menu
 {
     public class MainMenu : MonoBehaviour
     {
-        public static event Action OnMusicButton, OnSoundEffectButton;
+        public static event Action OnSoundEffectButton;
         [SerializeField] SoundController musicsController, soundEffectsController;
-        [SerializeField] GameObject mainPanel, skinsPanel;
+        [SerializeField] GameObject mainPanel, skinsPanel, weaponsPanel;
         [SerializeField] GameObject musicButton, soundEffectButton;
         [SerializeField] Sprite musicOnSprite, musicOffSprite, soundEffectOnSprite, soundEffectOffSprite;
 
@@ -19,23 +19,11 @@ namespace Assets.Scripts.Menu
 
         private void Start()
         {
-            MusicButtonControlStart();
-            if(soundEffectsController!=null)
+            MusicControlToStart();
+            if (soundEffectsController!=null)
                 SoundEffectButtonControlStart();
         }
 
-        public void MusicButtonControlStart()
-        {
-            var musicImage = musicButton.GetComponent<Image>();
-            if (musicsController.CheckActive())
-            {
-                musicImage.sprite = musicOnSprite;
-            }
-            else
-            {
-                musicImage.sprite = musicOffSprite;
-            }
-        }
 
         public void SoundEffectButtonControlStart()
         {
@@ -59,9 +47,24 @@ namespace Assets.Scripts.Menu
         public static bool isEventRegistered = false;
 
 
-        public void SkinsButton()
+        public void ActiveSkinsButton()
         {
             skinsPanel.SetActive(true);
+        }
+
+        public void ActiveWeaponsButton()
+        {
+            weaponsPanel.SetActive(true);
+        }
+
+        public void DeactiveSkinsButton()
+        {
+            skinsPanel.SetActive(false);
+        }
+
+        public void DeactiveWeaponsButton()
+        {
+            weaponsPanel.SetActive(false);
         }
 
         public void BackButton()
@@ -70,18 +73,38 @@ namespace Assets.Scripts.Menu
             mainPanel.SetActive(true);
         }
 
-        public void MusicButton()
+        public void MusicControlToStart()
         {
-            OnMusicButton?.Invoke();
             var musicImage = musicButton.GetComponent<Image>();
-           
+
             if (musicsController.CheckActive())
             {
                 musicImage.sprite = musicOnSprite;
+                musicsController.VolumeOn();
             }
             else
             {
                 musicImage.sprite = musicOffSprite;
+                musicsController.VolumeOff();
+            }
+
+        }
+
+        public void MusicButton()
+        {
+            var musicImage = musicButton.GetComponent<Image>();
+           
+            if (musicsController.CheckActive())
+            {
+                musicImage.sprite = musicOffSprite;
+                musicsController.SetActive(false);
+                musicsController.VolumeOff();
+            }
+            else
+            {
+                musicImage.sprite = musicOnSprite;
+                musicsController.SetActive(true);
+                musicsController.VolumeOn();
             }
 
         }

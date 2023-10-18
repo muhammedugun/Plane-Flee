@@ -17,15 +17,6 @@ namespace Assets.Scripts.Plane.ObserverPattern
             {
                 if(shield.active == false)
                 {
-                    if (!PlayerPrefs.HasKey("GameOverCount"))
-                    {
-                        PlayerPrefs.SetInt("GameOverCount", 0);
-                    }
-                    else
-                    {
-                        PlayerPrefs.SetInt("GameOverCount", PlayerPrefs.GetInt("GameOverCount") + 1);
-                    }
-                    Debug.Log(collision.gameObject.name);
                     OnTriggerEnter.Invoke();
                 }
             }

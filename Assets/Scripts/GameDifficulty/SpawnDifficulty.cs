@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.GameDifficulty
 {
-    
+
     public class SpawnDifficulty : MonoBehaviour
     {
         [SerializeField] ObstacleSpawner obstacleSpawner;
@@ -18,8 +18,11 @@ namespace Assets.Scripts.GameDifficulty
 
         public void SetDifficulty()
         {
-            if(Time.time>=nextDifficultyTime && obstacleSpawner.minDistance > 4f)
+            // Zorluğu arttırma döngüsüne ulaşıldığında ve engeller arasındaki minimum 
+            // mesafeye henüz ulaşılmadıysa
+            if (Time.time >= nextDifficultyTime && obstacleSpawner.minDistance > 4f)
             {
+                // engelleri birbirine yakınlaştır
                 obstacleSpawner.minDistance -= 0.2f;
                 obstacleSpawner.maxDistance -= 0.2f;
                 if (obstacleSpawner.minDistance <= 6f && !isSetHeight)
@@ -31,16 +34,14 @@ namespace Assets.Scripts.GameDifficulty
                     obstacleSpawner.bottomMinHeight -= 1f;
                     isSetHeight = true;
                 }
+                // bir sonraki zorluk arttışı için zamanı ayarla
                 SetNextDifficultyTime();
             }
-            
         }
 
         void SetNextDifficultyTime()
         {
             nextDifficultyTime = Time.time + difficultyDuration;
         }
-
-
     }
 }

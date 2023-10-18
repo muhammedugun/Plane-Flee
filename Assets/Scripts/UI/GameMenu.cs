@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.GameManager;
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,11 +6,9 @@ namespace Assets.Scripts.Menu
 {
     public class GameMenu : MonoBehaviour
     {
-
-        
         public GameObject pausePanel;
         public GameObject mainPanel;
-        public GameObject startPanel;
+        [SerializeField] private GameObject _startZone;
 
         internal bool isPausePanelActive = false;
 
@@ -26,8 +23,7 @@ namespace Assets.Scripts.Menu
         public void ResumeButton()
         {
             pausePanel.SetActive(false);
-            startPanel.SetActive(true);
-
+            _startZone.SetActive(true);
             UnscaledTimeInvoke.Invoke(IsPausePanelActiveFalse, 0.1f);
         
         }

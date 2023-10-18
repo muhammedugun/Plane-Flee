@@ -30,8 +30,6 @@ public class SceneLoadingManager : MonoBehaviour
         {
             float progressValue = Mathf.Clamp01(operation.progress / 0.9f); // 0 ile 1 arasýnda bir deðer verir, 1 olduðunda yüklenmiþtir
             planeRectTransform.position = new Vector2(planeStartPosX + progressValue * differentPosX, planeRectTransform.position.y);
-
-
             yield return null;
         }
 

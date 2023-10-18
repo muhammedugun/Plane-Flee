@@ -21,13 +21,11 @@ namespace Assets.Scripts.GameDifficulty
                 planeMovement.horizontalSpeed += 0.2f;
                 SetNextDifficultyTime();
             }
-
         }
 
         void SetNextDifficultyTime()
         {
             nextDifficultyTime = Time.time + difficultyDuration;
         }
-
     }
 }

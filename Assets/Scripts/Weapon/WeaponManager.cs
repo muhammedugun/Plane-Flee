@@ -11,14 +11,20 @@ namespace Assets.Scripts.Weapon
         public Image changeWeaponButton;
         public Sprite bulletSprite, rocketSprite;
 
+        [SerializeField] private UIWeaponManager uIWeaponManager;
+
         private bool isFirstLaunch = true;
         private GameObject rocket, bullet;
         private Rocket rocketScript;
-        private int weaponNo = 0; // 0 = bullet, 1 = rocket
+        /// <summary>
+        /// Bullet = 0, Rocket = 1
+        /// </summary>
+        internal int weaponNo = 0;
         private bool isButtonPressed = false;
         private readonly GameObject[] bulletArray = new GameObject[30];
         private int bulletCount = 0;
         private static float bulletNextReloadTime=0;
+
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -36,12 +42,16 @@ namespace Assets.Scripts.Weapon
             {
                 case 0:
                     weaponNo = 1;
+                    uIWeaponManager.UpdateChangeWeaponText();
                     changeWeaponButton.sprite = rocketSprite;
+                    
                     break;
 
                 case 1:
                     weaponNo = 0;
+                    uIWeaponManager.UpdateChangeWeaponText();
                     changeWeaponButton.sprite = bulletSprite;
+                   
                     break;
 
                 default:
@@ -68,18 +78,25 @@ namespace Assets.Scripts.Weapon
 
         void LaunchRocket()
         {
-            if (!isFirstLaunch && Time.time > rocketScript.nextReloadTime)
+            if(PlayerPrefs.GetInt("rocketCount") > 0)
             {
-                rocketScript.nextReloadTime = Time.time + rocketScript.reloadTime;
-                rocket.transform.SetPositionAndRotation(planeTransform.position, planeTransform.rotation);
-                rocketScript.Continue();
-            }
-            else if (isFirstLaunch)
-            {
-                rocket = Instantiate(rocketPrefab, position: planeTransform.position, rotation: planeTransform.rotation);
-                rocketScript = rocket.GetComponent<Rocket>();
-                isFirstLaunch = false;
-                rocketScript.nextReloadTime = Time.time + rocketScript.reloadTime;
+                if (!isFirstLaunch && Time.time > rocketScript.nextReloadTime)
+                {
+                    rocketScript.nextReloadTime = Time.time + rocketScript.reloadTime;
+                    rocket.transform.SetPositionAndRotation(planeTransform.position, planeTransform.rotation);
+                    rocketScript.Continue();
+                    PlayerPrefs.SetInt("rocketCount", PlayerPrefs.GetInt("rocketCount") - 1);
+                    uIWeaponManager.UpdateChangeWeaponText();
+                }
+                else if (isFirstLaunch)
+                {
+                    rocket = Instantiate(rocketPrefab, position: planeTransform.position, rotation: planeTransform.rotation);
+                    rocketScript = rocket.GetComponent<Rocket>();
+                    isFirstLaunch = false;
+                    rocketScript.nextReloadTime = Time.time + rocketScript.reloadTime;
+                    PlayerPrefs.SetInt("rocketCount", PlayerPrefs.GetInt("rocketCount") - 1);
+                    uIWeaponManager.UpdateChangeWeaponText();
+                }
             }
         }
 
@@ -87,27 +104,34 @@ namespace Assets.Scripts.Weapon
 
         void LaunchBullet()
         {
-            if (bulletArray[29] == null && Time.time > bulletNextReloadTime)
+            if(PlayerPrefs.GetInt("bulletCount") > 0)
             {
-                bullet = Instantiate(bulletPrefab, position: planeTransform.position, rotation: planeTransform.rotation);
-                bulletArray[bulletCount] = bullet;
-                bulletCount++;
-                bulletNextReloadTime = Time.time + Bullet.reloadTime;
-                bullet.GetComponent<Bullet>().Continue();
-            }
-
-            else if (bulletArray[29] != null && Time.time > bulletNextReloadTime)
-            {
-                if (bulletCount >= 29)
+                if (bulletArray[29] == null && Time.time > bulletNextReloadTime)
                 {
-                    bulletCount = 0;
+                    bullet = Instantiate(bulletPrefab, position: planeTransform.position, rotation: planeTransform.rotation);
+                    bulletArray[bulletCount] = bullet;
+                    bulletCount++;
+                    bulletNextReloadTime = Time.time + Bullet.reloadTime;
+                    bullet.GetComponent<Bullet>().Continue();
+                    PlayerPrefs.SetInt("bulletCount", PlayerPrefs.GetInt("bulletCount") - 1);
+                    uIWeaponManager.UpdateChangeWeaponText();
                 }
 
-                bulletNextReloadTime = Time.time + Bullet.reloadTime;
+                else if (bulletArray[29] != null && Time.time > bulletNextReloadTime)
+                {
+                    if (bulletCount >= 29)
+                    {
+                        bulletCount = 0;
+                    }
 
-                bulletArray[bulletCount].transform.SetPositionAndRotation(planeTransform.position, planeTransform.rotation);
-                bulletArray[bulletCount].GetComponent<Bullet>().Continue();
-                bulletCount++;
+                    bulletNextReloadTime = Time.time + Bullet.reloadTime;
+
+                    bulletArray[bulletCount].transform.SetPositionAndRotation(planeTransform.position, planeTransform.rotation);
+                    bulletArray[bulletCount].GetComponent<Bullet>().Continue();
+                    bulletCount++;
+                    PlayerPrefs.SetInt("bulletCount", PlayerPrefs.GetInt("bulletCount") - 1);
+                    uIWeaponManager.UpdateChangeWeaponText();
+                }
             }
         }
 

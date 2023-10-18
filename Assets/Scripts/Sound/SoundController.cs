@@ -20,6 +20,7 @@ namespace Assets.Scripts.Sound
                 PlayerPrefs.Save();
             }
         }
+
         /// <summary>
         /// Ses aktif mi değil mi?
         /// </summary>
@@ -37,6 +38,7 @@ namespace Assets.Scripts.Sound
                 PlayerPrefs.SetInt(key, 1);
             else
                 PlayerPrefs.SetInt(key, 0);
+            PlayerPrefs.Save();
         }
 
         public void VolumeControlStart()
@@ -80,9 +82,6 @@ namespace Assets.Scripts.Sound
             {
                 soundSource.volume = 0f;
             }
-
         }
-
-
     }
 }
